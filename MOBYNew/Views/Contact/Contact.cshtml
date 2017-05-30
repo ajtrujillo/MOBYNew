@@ -1,0 +1,32 @@
+﻿@model MOBYNew.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*rendering a class attribute dynamically below. Can render any attribute conditionally with this method.*@
+@{
+    var popularClass = Model.Contacts.Count > 2 ? "popular" : null;
+}
+
+
+<h2 class="@popularClass">@Model.Contacts</h2>
+
+@if (Model.Contacts.Count == 0)
+{
+    <p>No contacts yet.</p>
+}
+
+else
+{
+    <ul>
+        @foreach (var contact in Model.Contacts)
+        {
+            <li> @contact.Name</li>
+            <li><a asp-controller="Contact" asp-action="Index" asp-route-id="@contact.Id">@contact.Name</a></li>
+        }
+</ul>
+}
+
+
+
