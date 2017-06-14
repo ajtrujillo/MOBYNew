@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.ApplicationInsights.WindowsServer;
-
-namespace MOBYNew.Models
+﻿namespace MOBYNew.Models
 {
     public class Contact
     {

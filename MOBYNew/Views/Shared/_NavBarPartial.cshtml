@@ -11,9 +11,15 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                <li>@Html.ActionLink("Items", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                @*Html.ActionLink("Display Text", "Action Name", "Controller Name")*@
+                <li>@Html.ActionLink("Items", "Index", "Item")</li>
+                <li>@Html.ActionLink("Contacts", "Contact", "Home")</li>
+                <li>
+                    <a asp-controller="Item"
+                       asp-action="Index">
+                        Items
+                    </a>
+                </li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
