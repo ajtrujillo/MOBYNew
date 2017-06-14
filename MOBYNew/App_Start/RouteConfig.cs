@@ -12,6 +12,7 @@ namespace MOBYNew
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             //This line enables attribute routing in the controllers
