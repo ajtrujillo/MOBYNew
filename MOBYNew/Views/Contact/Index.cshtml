@@ -1,4 +1,4 @@
-﻿@model MOBYNew.ViewModels.ContactViewModel
+﻿@model IEnumerable<MOBYNew.Models.Contact>
 @{
     ViewBag.Title = "Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,30 +10,59 @@
 </p>
 
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+    @foreach (var contact in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => contact.Name)
+            </td>
+            <td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
+            </td>
+        </tr>
+    }
+    }
+
+</table>
+
+
+
 
 @*rendering a class attribute dynamically below. Can render any attribute conditionally with this method.*@
 @*{
-    var popularClass = Model.Contacts.Count > 2 ? "popular" : null;
-}
+        var popularClass = Model.Contacts.Count > 2 ? "popular" : null;
+    }
 
 
-<h2 class="@popularClass">@Model.Contacts</h2>
+    <h2 class="@popularClass">@Model.Contacts</h2>
 
-@if (Model.Contacts.Count == 0)
-{
-    <p>No contacts yet.</p>
-}
+    @if (Model.Contacts.Count == 0)
+    {
+        <p>No contacts yet.</p>
+    }
 
-else
-{
-    <ul>
-        @foreach (var contact in Model.Contacts)
-        {
-            <li> @contact.Name</li>
-            <li><a asp-controller="Contact" asp-action="Index" asp-route-id="@contact.Id">@contact.Name</a></li>
-        }
-</ul>
-}*@
+    else
+    {
+        <ul>
+            @foreach (var contact in Model.Contacts)
+            {
+                <li> @contact.Name</li>
+                <li><a asp-controller="Contact" asp-action="Index" asp-route-id="@contact.Id">@contact.Name</a></li>
+            }
+    </ul>
+    }*@
 
 
 

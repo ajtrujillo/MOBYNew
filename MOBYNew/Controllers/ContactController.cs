@@ -13,7 +13,7 @@ namespace MOBYNew.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            ContactViewModel contactList = new ContactViewModel();
+            List<Contact> contactList = new List<Contact>();
 
             {
                 new Contact { Name = "Amy", Id = 1 };
