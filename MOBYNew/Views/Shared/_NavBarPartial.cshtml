@@ -13,13 +13,14 @@
             <ul class="nav navbar-nav">
                 @*Html.ActionLink("Display Text", "Action Name", "Controller Name")*@
                 <li>@Html.ActionLink("Items", "Index", "Item")</li>
-                <li>@Html.ActionLink("Contacts", "Contact", "Home")</li>
-                <li>
+                <li>@Html.ActionLink("Contacts", "Index","Contact")</li>
+                @*<li>
                     <a asp-controller="Item"
-                       asp-action="Index">
-                        Items
+                       asp-action="Index"
+                       asp-route-id="@Contact.Id">
+                       Items
                     </a>
-                </li>
+                </li>*@
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
