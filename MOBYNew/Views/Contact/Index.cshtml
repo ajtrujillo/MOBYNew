@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<MOBYNew.Models.Contact>
 @{
-    ViewBag.Title = "Contacts";
+    ViewData["Title"] = "Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Contacts</h2>
-<p>
-    @Html.ActionLink("Contacts", "Index", "Contact")
-</p>
-
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -23,7 +19,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => contact.Name)
+                @Html.DisplayFor(modelContact => contact.Name)
             </td>
             <td>
             <td>
@@ -33,7 +29,7 @@
             </td>
         </tr>
     }
-    }
+
 
 </table>
 
