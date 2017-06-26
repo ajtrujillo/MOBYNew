@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -20,10 +20,10 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelContact => contact.Name)
+                @Html.ActionLink(contact.Name, "ContactDetail", "Contact", new { id = contact.Id }, null)
             </td>
             <td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                @Html.ActionLink("Edit", "Edit", new { id = contact.Id}) |
                 @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
             </td>
