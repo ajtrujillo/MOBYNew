@@ -19,10 +19,11 @@ namespace MOBYNew.Controllers
             return View(contactList);
         }
 
+        //GET: Contact Detail view
         public ActionResult ContactDetail(int id)
         {
-            Contact tempContact = new Contact { Id = id };
-            return View(tempContact);
+            Contact contactDetail = new Contact { Id = id };
+            return View(contactDetail);
         }
     }
 }

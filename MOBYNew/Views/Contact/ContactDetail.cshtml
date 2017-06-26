@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MOBYNew.Models.Contact>
+﻿@model MOBYNew.Models.Contact
 @{
-    ViewData["Title"] = "Contacts";
+    ViewData["Title"] = "Contact Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Contacts</h2>
+<h2>Contact Detail</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,21 +15,12 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
     </tr>
-    @foreach (var contact in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelContact => contact.Name)
-                @Html.ActionLink(contact.Name, "ContactDetail", "Contact", new { id = contact.Id }, null)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = contact.Id}) |
-                @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
-            </td>
-        </tr>
-    }
-
+    <tr>
+        <td>
+            @Html.Display("name")
+            @*@Html.ActionLink(contact.Name, "ContactDetail", "Contact", new { id = contact.Id }, null)*@
+        </td>
+    </tr>
 
 </table>
 

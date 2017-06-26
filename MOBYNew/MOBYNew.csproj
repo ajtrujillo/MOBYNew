@@ -528,6 +528,7 @@
     <Content Include="Views\Shared\_NavBarPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Contact\ContactDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
