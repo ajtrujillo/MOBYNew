@@ -3,21 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MOBY™ New</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
     @*The content of_NavBarPartial.cshtml is replaced here with the html.Partial helper method.
-    A Model (e.g. Model.Item) can be passed second argument into this helper method;
-    otherwise, the default or declared model for this view is passed to the partial view.*@
+        A Model (e.g. Model.Item) can be passed second argument into this helper method;
+        otherwise, the default or declared model for this view is passed to the partial view.*@
     @Html.Partial("_NavBarPartial")
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - MOBY™ Point-of-Sale</p>
+            <p>
+                &copy; @DateTime.Now.Year MOBY™ Point-of-Sale by
+                <a href="http://www.bitterendsystems.com">Bitter End Systems</a>
+            </p>
         </footer>
     </div>
 

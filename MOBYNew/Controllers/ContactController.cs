@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 
@@ -6,34 +7,39 @@ namespace MOBYNew.Controllers
 {
     public class ContactController : Controller
     {
-        private List<Contact> contactList = new List<Contact>
-            {
-                new Contact {Name = "AJ", Id = 1},
-                new Contact {Name = "Ben", Id = 2},
-                new Contact {Name = "Jackson", Id = 3}
-            };
 
         // GET: Contact
-        public ActionResult Index()
+        public ViewResult Index()
 
         {
-            if (contactList.Count == 0)
+            var contacts = GetContacts();
 
-            { return Content("No contacts yet"); }
-
-            else
-
-            { return View(contactList); }
+            { return View(contacts); }
         }
 
         //GET: Contact Detail view
         public ActionResult ContactDetail(int id)
         {
-            Contact contactDetail = new Contact { Id = id };
-
+            var contactDetail = GetContacts().SingleOrDefault(c => c.Id == id);
             {
+                if (contactDetail == null)
+                    return HttpNotFound();
+
                 return View(contactDetail);
             }
+        }
+
+        private IEnumerable<Contact> GetContacts()
+        {
+            return new List<Contact>
+            {
+                new Contact {Id=1, Name="Jackson" },
+                new Contact {Id=2, Name= "Delmar" },
+                new Models.Contact {Id= 3, Name= "Forsyth" },
+                new Contact {Id = 4, Name= "Hanley" },
+                new Contact {Id=5, Name= "Jeff" }
+
+            };
         }
     }
 }

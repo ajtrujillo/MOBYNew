@@ -42,16 +42,23 @@ namespace MOBYNew.Controllers
 
         //    return Content(String.Format("pageIndex = {0}&sortBy={1}", pageIndex, sortBy));
         //}     
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            List<Item> itemsList = new List<Item>
+            var items = GetItems();
+
+            return View(items);
+
+        }
+
+        private IEnumerable<Item> GetItems()
+        {
+            return new List<Item>
             {
+
                 new Item {Name = "Watchmen", Id = 1},
                 new Item {Name = "The Dark Knight Returns", Id = 2},
                 new Item {Name = "Blade of the Immortal", Id = 3}
             };
-
-            return View(itemsList);
 
         }
 

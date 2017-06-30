@@ -18,38 +18,8 @@
     <tr>
         <td>
             @Html.Display("name")
-            @*@Html.ActionLink(contact.Name, "ContactDetail", "Contact", new { id = contact.Id }, null)*@
         </td>
     </tr>
 
 </table>
-
-
-
-
-@*rendering a class attribute dynamically below. Can render any attribute conditionally with this method.*@
-@*{
-        var popularClass = Model.Contacts.Count > 2 ? "popular" : null;
-    }
-
-
-    <h2 class="@popularClass">@Model.Contacts</h2>
-
-    @if (Model.Contacts.Count == 0)
-    {
-        <p>No contacts yet.</p>
-    }
-
-    else
-    {
-        <ul>
-            @foreach (var contact in Model.Contacts)
-            {
-                <li> @contact.Name</li>
-                <li><a asp-controller="Contact" asp-action="Index" asp-route-id="@contact.Id">@contact.Name</a></li>
-            }
-    </ul>
-    }*@
-
-
 

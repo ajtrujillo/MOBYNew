@@ -9,56 +9,28 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-    </tr>
-    @foreach (var contact in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelContact => contact.Name)
-                @Html.ActionLink(contact.Name, "ContactDetail", "Contact", new { id = contact.Id }, null)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = contact.Id}) |
-                @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
-            </td>
-        </tr>
-    }
 
+@if (!Model.Any())
+{
+    <p>No contacts yet.</p>
+}
 
-</table>
-
-
-
-
-@*rendering a class attribute dynamically below. Can render any attribute conditionally with this method.*@
-@*{
-        var popularClass = Model.Contacts.Count > 2 ? "popular" : null;
-    }
-
-
-    <h2 class="@popularClass">@Model.Contacts</h2>
-
-    @if (Model.Contacts.Count == 0)
-    {
-        <p>No contacts yet.</p>
-    }
-
-    else
-    {
-        <ul>
-            @foreach (var contact in Model.Contacts)
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead><tr><th>This Header</th></tr></thead>
+        <tbody>
+            @foreach (var contact in Model)
             {
-                <li> @contact.Name</li>
-                <li><a asp-controller="Contact" asp-action="Index" asp-route-id="@contact.Id">@contact.Name</a></li>
+                <tr>
+                    <td>@Html.ActionLink(contact.Name, "Details", "Contacts", new { id = contact.Id }, null)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
+                    </td>
+                </tr>
             }
-    </ul>
-    }*@
-
-
-
+        </tbody>
+    </table>
+}

@@ -7,20 +7,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("MOBY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("MOBY™", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @*Html.ActionLink("Display Text", "Action Name", "Controller Name")*@
                 <li>@Html.ActionLink("Items", "Index", "Item")</li>
                 <li>@Html.ActionLink("Contacts", "Index","Contact")</li>
-                @*<li>
-                    <a asp-controller="Item"
-                       asp-action="Index"
-                       asp-route-id="@Contact.Id">
-                       Items
-                    </a>
-                </li>*@
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
