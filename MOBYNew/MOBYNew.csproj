@@ -445,9 +445,35 @@
     <Compile Include="Migrations\201707010008032_InitialModel.Designer.cs">
       <DependentUpon>201707010008032_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707032326178_AddedDOB.cs" />
+    <Compile Include="Migrations\201707032326178_AddedDOB.Designer.cs">
+      <DependentUpon>201707032326178_AddedDOB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707032328582_AddedCompanyName.cs" />
+    <Compile Include="Migrations\201707032328582_AddedCompanyName.Designer.cs">
+      <DependentUpon>201707032328582_AddedCompanyName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.cs" />
+    <Compile Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.Designer.cs">
+      <DependentUpon>201707040006187_CreatedDiscountClassandAddedtoContactClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.cs" />
+    <Compile Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.Designer.cs">
+      <DependentUpon>201707040020301_AddedContactTypeandIdtoContactClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707040024311_AddedIdtoDiscountClass.cs" />
+    <Compile Include="Migrations\201707040024311_AddedIdtoDiscountClass.Designer.cs">
+      <DependentUpon>201707040024311_AddedIdtoDiscountClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707040028082_AddedDiscountIdToContactType.cs" />
+    <Compile Include="Migrations\201707040028082_AddedDiscountIdToContactType.Designer.cs">
+      <DependentUpon>201707040028082_AddedDiscountIdToContactType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactType.cs" />
+    <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -551,6 +577,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707010008032_InitialModel.resx">
       <DependentUpon>201707010008032_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707032326178_AddedDOB.resx">
+      <DependentUpon>201707032326178_AddedDOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707032328582_AddedCompanyName.resx">
+      <DependentUpon>201707032328582_AddedCompanyName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.resx">
+      <DependentUpon>201707040006187_CreatedDiscountClassandAddedtoContactClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.resx">
+      <DependentUpon>201707040020301_AddedContactTypeandIdtoContactClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040024311_AddedIdtoDiscountClass.resx">
+      <DependentUpon>201707040024311_AddedIdtoDiscountClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040028082_AddedDiscountIdToContactType.resx">
+      <DependentUpon>201707040028082_AddedDiscountIdToContactType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
