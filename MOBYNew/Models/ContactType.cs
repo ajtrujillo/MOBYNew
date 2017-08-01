@@ -12,7 +12,7 @@ namespace MOBYNew.Models
 
         public Discount Discount { get; set; }
         public byte DiscountId { get; set; }
-        public bool IsEligibleForDiscount { get; set; }
+        public bool? IsEligibleForDiscount { get; set; }
 
         public ContactStatus ContactStatus { get; set; }
         public byte ContactStatusId { get; set; }
