@@ -489,6 +489,18 @@
     <Compile Include="Migrations\201708030158001_SeedContactStatus.Designer.cs">
       <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708030220398_SeedContactDiscounts.cs" />
+    <Compile Include="Migrations\201708030220398_SeedContactDiscounts.Designer.cs">
+      <DependentUpon>201708030220398_SeedContactDiscounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708030239383_SeedContactDiscounts2.cs" />
+    <Compile Include="Migrations\201708030239383_SeedContactDiscounts2.Designer.cs">
+      <DependentUpon>201708030239383_SeedContactDiscounts2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708030240541_SeedContactDiscounts3.cs" />
+    <Compile Include="Migrations\201708030240541_SeedContactDiscounts3.Designer.cs">
+      <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -631,6 +643,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708030158001_SeedContactStatus.resx">
       <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708030220398_SeedContactDiscounts.resx">
+      <DependentUpon>201708030220398_SeedContactDiscounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708030239383_SeedContactDiscounts2.resx">
+      <DependentUpon>201708030239383_SeedContactDiscounts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708030240541_SeedContactDiscounts3.resx">
+      <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

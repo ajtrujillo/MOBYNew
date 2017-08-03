@@ -7,8 +7,9 @@ namespace MOBYNew.Models
 {
     public class Discount
     {
-        public byte Id { get; set; }
+        public int Id { get; set; }
+        public string discountName { get; set; }
         public int discountPercent { get; set; }
-        public int discountDuration { get; set; }
+        public int discountDurationInMonths { get; set; }
     }
 }
