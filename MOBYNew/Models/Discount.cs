@@ -9,6 +9,6 @@ namespace MOBYNew.Models
     {
         public byte Id { get; set; }
         public int discountPercent { get; set; }
-        public DateTime discountDuration { get; set; }
+        public int discountDuration { get; set; }
     }
 }

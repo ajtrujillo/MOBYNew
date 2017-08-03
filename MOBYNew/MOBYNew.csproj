@@ -485,6 +485,10 @@
     <Compile Include="Migrations\201708010016187_AlterContactTable.Designer.cs">
       <DependentUpon>201708010016187_AlterContactTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708030158001_SeedContactStatus.cs" />
+    <Compile Include="Migrations\201708030158001_SeedContactStatus.Designer.cs">
+      <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -624,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708010016187_AlterContactTable.resx">
       <DependentUpon>201708010016187_AlterContactTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708030158001_SeedContactStatus.resx">
+      <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

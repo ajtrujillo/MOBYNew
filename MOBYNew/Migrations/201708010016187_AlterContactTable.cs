@@ -7,12 +7,14 @@ namespace MOBYNew.Migrations
     {
         public override void Up()
         {
-            DropColumn("Contacts", "CompanyName");
-            DropColumn("Contacts", "DOB");
+            AlterColumn("dbo.Contacts", "IsSubscribedToNewsletter", c => c.Boolean());
+            AlterColumn("dbo.ContactTypes", "IsEligibleForDiscount", c => c.Boolean());
         }
         
         public override void Down()
         {
+            AlterColumn("dbo.ContactTypes", "IsEligibleForDiscount", c => c.Boolean(nullable: false));
+            AlterColumn("dbo.Contacts", "IsSubscribedToNewsletter", c => c.Boolean(nullable: false));
         }
     }
 }
