@@ -501,6 +501,30 @@
     <Compile Include="Migrations\201708030240541_SeedContactDiscounts3.Designer.cs">
       <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708041844509_InitialCreate.cs" />
+    <Compile Include="Migrations\201708041844509_InitialCreate.Designer.cs">
+      <DependentUpon>201708041844509_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708041912101_SeedConTypes01.cs" />
+    <Compile Include="Migrations\201708041912101_SeedConTypes01.Designer.cs">
+      <DependentUpon>201708041912101_SeedConTypes01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.cs" />
+    <Compile Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.Designer.cs">
+      <DependentUpon>201708041922270_UncommentedIsEligibleForDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708041940447_createddiscountconstructor.cs" />
+    <Compile Include="Migrations\201708041940447_createddiscountconstructor.Designer.cs">
+      <DependentUpon>201708041940447_createddiscountconstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708042007487_reintroducecontactstatus.cs" />
+    <Compile Include="Migrations\201708042007487_reintroducecontactstatus.Designer.cs">
+      <DependentUpon>201708042007487_reintroducecontactstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708042009386_ReseedContactStatus.cs" />
+    <Compile Include="Migrations\201708042009386_ReseedContactStatus.Designer.cs">
+      <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -652,6 +676,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708030240541_SeedContactDiscounts3.resx">
       <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041844509_InitialCreate.resx">
+      <DependentUpon>201708041844509_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041912101_SeedConTypes01.resx">
+      <DependentUpon>201708041912101_SeedConTypes01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.resx">
+      <DependentUpon>201708041922270_UncommentedIsEligibleForDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041940447_createddiscountconstructor.resx">
+      <DependentUpon>201708041940447_createddiscountconstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042007487_reintroducecontactstatus.resx">
+      <DependentUpon>201708042007487_reintroducecontactstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042009386_ReseedContactStatus.resx">
+      <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
