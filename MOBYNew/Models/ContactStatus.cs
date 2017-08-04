@@ -7,7 +7,7 @@ namespace MOBYNew.Models
 {
     public class ContactStatus
     {
-        public byte Id { get; set; }
+        public int Id { get; set; }
         public string contactStatus { get; set; }
     }
 }
