@@ -13,10 +13,12 @@ namespace MOBYNew.Models
         public ContactType ContactType { get; set; }
         public byte ContactTypeId { get; set; }
 
+        private DateTime? JoinDate {get;set;}
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime JoinDate { get; set; }
-
+        public DateTime? DOB { get; set; }
+       
         public bool? IsSubscribedToNewsletter { get; set; }
     }
 }
