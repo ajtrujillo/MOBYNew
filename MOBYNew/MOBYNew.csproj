@@ -533,6 +533,18 @@
     <Compile Include="Migrations\201708042034252_MadeContactNameRequired.Designer.cs">
       <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708042044229_AddedFirstandLastName.cs" />
+    <Compile Include="Migrations\201708042044229_AddedFirstandLastName.Designer.cs">
+      <DependentUpon>201708042044229_AddedFirstandLastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708042046426_AddJoinDatetoContacts.cs" />
+    <Compile Include="Migrations\201708042046426_AddJoinDatetoContacts.Designer.cs">
+      <DependentUpon>201708042046426_AddJoinDatetoContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708042048464_MakeJoinDateNullable.cs" />
+    <Compile Include="Migrations\201708042048464_MakeJoinDateNullable.Designer.cs">
+      <DependentUpon>201708042048464_MakeJoinDateNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -708,6 +720,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708042034252_MadeContactNameRequired.resx">
       <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042044229_AddedFirstandLastName.resx">
+      <DependentUpon>201708042044229_AddedFirstandLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042046426_AddJoinDatetoContacts.resx">
+      <DependentUpon>201708042046426_AddJoinDatetoContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042048464_MakeJoinDateNullable.resx">
+      <DependentUpon>201708042048464_MakeJoinDateNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

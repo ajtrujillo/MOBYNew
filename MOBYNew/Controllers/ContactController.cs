@@ -33,11 +33,11 @@ namespace MOBYNew.Controllers
         {
             return new List<Contact>
             {
-                new Contact {Id=1, Name="Jackson" },
-                new Contact {Id=2, Name= "Delmar" },
-                new Models.Contact {Id= 3, Name= "Forsyth" },
-                new Contact {Id = 4, Name= "Hanley" },
-                new Contact {Id=5, Name= "Jeff" }
+                new Contact {Id=1, FirstName="Jackson", LastName="Trujillo" },
+                new Contact {Id=2, FirstName= "Delmar", LastName="Trujillo" },
+                new Models.Contact {Id= 3, FirstName= "Forsyth", LastName="Trujillo" },
+                new Contact {Id = 4, FirstName= "Hanley", LastName="Trujillo" },
+                new Contact {Id=5, FirstName= "Jeff", LastName="Trujillo" }
 
             };
         }
