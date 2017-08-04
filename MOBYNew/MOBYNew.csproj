@@ -525,6 +525,14 @@
     <Compile Include="Migrations\201708042009386_ReseedContactStatus.Designer.cs">
       <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708042029398_AddDistributorToConType.cs" />
+    <Compile Include="Migrations\201708042029398_AddDistributorToConType.Designer.cs">
+      <DependentUpon>201708042029398_AddDistributorToConType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708042034252_MadeContactNameRequired.cs" />
+    <Compile Include="Migrations\201708042034252_MadeContactNameRequired.Designer.cs">
+      <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -694,6 +702,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708042009386_ReseedContactStatus.resx">
       <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042029398_AddDistributorToConType.resx">
+      <DependentUpon>201708042029398_AddDistributorToConType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708042034252_MadeContactNameRequired.resx">
+      <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
