@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
+using System;
 
 namespace MOBYNew.Controllers
 {
@@ -11,6 +12,7 @@ namespace MOBYNew.Controllers
         // GET: Contact
 
         private ApplicationDbContext _context;
+
         public ContactController()
         {
             _context = new ApplicationDbContext();
@@ -26,8 +28,9 @@ namespace MOBYNew.Controllers
 
         {
             var contacts = _context.Contacts.ToList();
+            //var contacts = _context.Contacts.Include(c => c.ContactType).ToList();
 
-             return View(contacts);
+            return View(contacts);
         }
 
         //GET: Contact Detail view

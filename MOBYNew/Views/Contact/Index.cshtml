@@ -10,20 +10,27 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@if (!Model.Any())
+@if (Model.Any()==false)
 {
     <p>No contacts yet.</p>
 }
 
 else
 {
+    
     <table class="table table-bordered table-hover">
-        <thead><tr><th>This Header</th></tr></thead>
+        <thead>
+            <tr>
+                <th>Contact Name</th>
+                <th>Contact Type</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var contact in Model)
             {
                 <tr>
                     <td>@Html.ActionLink(contact.FirstName + " " + contact.LastName, "Details", "Contacts", new { id = contact.Id }, null)</td>
+                    <td>@contact.ContactType</td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
