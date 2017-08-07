@@ -441,117 +441,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707010008032_InitialModel.cs" />
-    <Compile Include="Migrations\201707010008032_InitialModel.Designer.cs">
-      <DependentUpon>201707010008032_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201708071847196_SecondInitialMigration.cs" />
+    <Compile Include="Migrations\201708071847196_SecondInitialMigration.Designer.cs">
+      <DependentUpon>201708071847196_SecondInitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707032326178_AddedDOB.cs" />
-    <Compile Include="Migrations\201707032326178_AddedDOB.Designer.cs">
-      <DependentUpon>201707032326178_AddedDOB.cs</DependentUpon>
+    <Compile Include="Migrations\201708071853421_SeedContactStatus.cs" />
+    <Compile Include="Migrations\201708071853421_SeedContactStatus.Designer.cs">
+      <DependentUpon>201708071853421_SeedContactStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707032328582_AddedCompanyName.cs" />
-    <Compile Include="Migrations\201707032328582_AddedCompanyName.Designer.cs">
-      <DependentUpon>201707032328582_AddedCompanyName.cs</DependentUpon>
+    <Compile Include="Migrations\201708071922213_SeedContactDiscount.cs" />
+    <Compile Include="Migrations\201708071922213_SeedContactDiscount.Designer.cs">
+      <DependentUpon>201708071922213_SeedContactDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.cs" />
-    <Compile Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.Designer.cs">
-      <DependentUpon>201707040006187_CreatedDiscountClassandAddedtoContactClass.cs</DependentUpon>
+    <Compile Include="Migrations\201708071943548_AddDBGeneratedOptionAttribute.cs" />
+    <Compile Include="Migrations\201708071943548_AddDBGeneratedOptionAttribute.Designer.cs">
+      <DependentUpon>201708071943548_AddDBGeneratedOptionAttribute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.cs" />
-    <Compile Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.Designer.cs">
-      <DependentUpon>201707040020301_AddedContactTypeandIdtoContactClass.cs</DependentUpon>
+    <Compile Include="Migrations\201708071945405_SeedContactDiscount2.cs" />
+    <Compile Include="Migrations\201708071945405_SeedContactDiscount2.Designer.cs">
+      <DependentUpon>201708071945405_SeedContactDiscount2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707040024311_AddedIdtoDiscountClass.cs" />
-    <Compile Include="Migrations\201707040024311_AddedIdtoDiscountClass.Designer.cs">
-      <DependentUpon>201707040024311_AddedIdtoDiscountClass.cs</DependentUpon>
+    <Compile Include="Migrations\201708072004157_MakeConStatusIDandDiscountIdNullable.cs" />
+    <Compile Include="Migrations\201708072004157_MakeConStatusIDandDiscountIdNullable.Designer.cs">
+      <DependentUpon>201708072004157_MakeConStatusIDandDiscountIdNullable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707040028082_AddedDiscountIdToContactType.cs" />
-    <Compile Include="Migrations\201707040028082_AddedDiscountIdToContactType.Designer.cs">
-      <DependentUpon>201707040028082_AddedDiscountIdToContactType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707141653110_AddedContactType.cs" />
-    <Compile Include="Migrations\201707141653110_AddedContactType.Designer.cs">
-      <DependentUpon>201707141653110_AddedContactType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707141657344_AddContactStatustoContactType.cs" />
-    <Compile Include="Migrations\201707141657344_AddContactStatustoContactType.Designer.cs">
-      <DependentUpon>201707141657344_AddContactStatustoContactType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707141700313_AddedIsSubscribedToNewsletter.cs" />
-    <Compile Include="Migrations\201707141700313_AddedIsSubscribedToNewsletter.Designer.cs">
-      <DependentUpon>201707141700313_AddedIsSubscribedToNewsletter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708010016187_AlterContactTable.cs" />
-    <Compile Include="Migrations\201708010016187_AlterContactTable.Designer.cs">
-      <DependentUpon>201708010016187_AlterContactTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708030158001_SeedContactStatus.cs" />
-    <Compile Include="Migrations\201708030158001_SeedContactStatus.Designer.cs">
-      <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708030220398_SeedContactDiscounts.cs" />
-    <Compile Include="Migrations\201708030220398_SeedContactDiscounts.Designer.cs">
-      <DependentUpon>201708030220398_SeedContactDiscounts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708030239383_SeedContactDiscounts2.cs" />
-    <Compile Include="Migrations\201708030239383_SeedContactDiscounts2.Designer.cs">
-      <DependentUpon>201708030239383_SeedContactDiscounts2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708030240541_SeedContactDiscounts3.cs" />
-    <Compile Include="Migrations\201708030240541_SeedContactDiscounts3.Designer.cs">
-      <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708041844509_InitialCreate.cs" />
-    <Compile Include="Migrations\201708041844509_InitialCreate.Designer.cs">
-      <DependentUpon>201708041844509_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708041912101_SeedConTypes01.cs" />
-    <Compile Include="Migrations\201708041912101_SeedConTypes01.Designer.cs">
-      <DependentUpon>201708041912101_SeedConTypes01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.cs" />
-    <Compile Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.Designer.cs">
-      <DependentUpon>201708041922270_UncommentedIsEligibleForDiscount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708041940447_createddiscountconstructor.cs" />
-    <Compile Include="Migrations\201708041940447_createddiscountconstructor.Designer.cs">
-      <DependentUpon>201708041940447_createddiscountconstructor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042007487_reintroducecontactstatus.cs" />
-    <Compile Include="Migrations\201708042007487_reintroducecontactstatus.Designer.cs">
-      <DependentUpon>201708042007487_reintroducecontactstatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042009386_ReseedContactStatus.cs" />
-    <Compile Include="Migrations\201708042009386_ReseedContactStatus.Designer.cs">
-      <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042029398_AddDistributorToConType.cs" />
-    <Compile Include="Migrations\201708042029398_AddDistributorToConType.Designer.cs">
-      <DependentUpon>201708042029398_AddDistributorToConType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042034252_MadeContactNameRequired.cs" />
-    <Compile Include="Migrations\201708042034252_MadeContactNameRequired.Designer.cs">
-      <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042044229_AddedFirstandLastName.cs" />
-    <Compile Include="Migrations\201708042044229_AddedFirstandLastName.Designer.cs">
-      <DependentUpon>201708042044229_AddedFirstandLastName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042046426_AddJoinDatetoContacts.cs" />
-    <Compile Include="Migrations\201708042046426_AddJoinDatetoContacts.Designer.cs">
-      <DependentUpon>201708042046426_AddJoinDatetoContacts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042048464_MakeJoinDateNullable.cs" />
-    <Compile Include="Migrations\201708042048464_MakeJoinDateNullable.Designer.cs">
-      <DependentUpon>201708042048464_MakeJoinDateNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708042106473_AlteredJoinDateAddedDOB.cs" />
-    <Compile Include="Migrations\201708042106473_AlteredJoinDateAddedDOB.Designer.cs">
-      <DependentUpon>201708042106473_AlteredJoinDateAddedDOB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708071804170_AddFKAttributes.cs" />
-    <Compile Include="Migrations\201708071804170_AddFKAttributes.Designer.cs">
-      <DependentUpon>201708071804170_AddFKAttributes.cs</DependentUpon>
+    <Compile Include="Migrations\201708072006182_SeedConTypes.cs" />
+    <Compile Include="Migrations\201708072006182_SeedConTypes.Designer.cs">
+      <DependentUpon>201708072006182_SeedConTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -660,89 +576,26 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707010008032_InitialModel.resx">
-      <DependentUpon>201707010008032_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071847196_SecondInitialMigration.resx">
+      <DependentUpon>201708071847196_SecondInitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707032326178_AddedDOB.resx">
-      <DependentUpon>201707032326178_AddedDOB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071853421_SeedContactStatus.resx">
+      <DependentUpon>201708071853421_SeedContactStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707032328582_AddedCompanyName.resx">
-      <DependentUpon>201707032328582_AddedCompanyName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071922213_SeedContactDiscount.resx">
+      <DependentUpon>201708071922213_SeedContactDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040006187_CreatedDiscountClassandAddedtoContactClass.resx">
-      <DependentUpon>201707040006187_CreatedDiscountClassandAddedtoContactClass.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071943548_AddDBGeneratedOptionAttribute.resx">
+      <DependentUpon>201708071943548_AddDBGeneratedOptionAttribute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040020301_AddedContactTypeandIdtoContactClass.resx">
-      <DependentUpon>201707040020301_AddedContactTypeandIdtoContactClass.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071945405_SeedContactDiscount2.resx">
+      <DependentUpon>201708071945405_SeedContactDiscount2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040024311_AddedIdtoDiscountClass.resx">
-      <DependentUpon>201707040024311_AddedIdtoDiscountClass.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708072004157_MakeConStatusIDandDiscountIdNullable.resx">
+      <DependentUpon>201708072004157_MakeConStatusIDandDiscountIdNullable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040028082_AddedDiscountIdToContactType.resx">
-      <DependentUpon>201707040028082_AddedDiscountIdToContactType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707141653110_AddedContactType.resx">
-      <DependentUpon>201707141653110_AddedContactType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707141657344_AddContactStatustoContactType.resx">
-      <DependentUpon>201707141657344_AddContactStatustoContactType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707141700313_AddedIsSubscribedToNewsletter.resx">
-      <DependentUpon>201707141700313_AddedIsSubscribedToNewsletter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708010016187_AlterContactTable.resx">
-      <DependentUpon>201708010016187_AlterContactTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708030158001_SeedContactStatus.resx">
-      <DependentUpon>201708030158001_SeedContactStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708030220398_SeedContactDiscounts.resx">
-      <DependentUpon>201708030220398_SeedContactDiscounts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708030239383_SeedContactDiscounts2.resx">
-      <DependentUpon>201708030239383_SeedContactDiscounts2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708030240541_SeedContactDiscounts3.resx">
-      <DependentUpon>201708030240541_SeedContactDiscounts3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708041844509_InitialCreate.resx">
-      <DependentUpon>201708041844509_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708041912101_SeedConTypes01.resx">
-      <DependentUpon>201708041912101_SeedConTypes01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708041922270_UncommentedIsEligibleForDiscount.resx">
-      <DependentUpon>201708041922270_UncommentedIsEligibleForDiscount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708041940447_createddiscountconstructor.resx">
-      <DependentUpon>201708041940447_createddiscountconstructor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042007487_reintroducecontactstatus.resx">
-      <DependentUpon>201708042007487_reintroducecontactstatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042009386_ReseedContactStatus.resx">
-      <DependentUpon>201708042009386_ReseedContactStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042029398_AddDistributorToConType.resx">
-      <DependentUpon>201708042029398_AddDistributorToConType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042034252_MadeContactNameRequired.resx">
-      <DependentUpon>201708042034252_MadeContactNameRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042044229_AddedFirstandLastName.resx">
-      <DependentUpon>201708042044229_AddedFirstandLastName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042046426_AddJoinDatetoContacts.resx">
-      <DependentUpon>201708042046426_AddJoinDatetoContacts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042048464_MakeJoinDateNullable.resx">
-      <DependentUpon>201708042048464_MakeJoinDateNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708042106473_AlteredJoinDateAddedDOB.resx">
-      <DependentUpon>201708042106473_AlteredJoinDateAddedDOB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708071804170_AddFKAttributes.resx">
-      <DependentUpon>201708071804170_AddFKAttributes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708072006182_SeedConTypes.resx">
+      <DependentUpon>201708072006182_SeedConTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
