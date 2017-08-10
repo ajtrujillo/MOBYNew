@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
@@ -27,8 +28,7 @@ namespace MOBYNew.Controllers
         public ViewResult Index()
 
         {
-            var contacts = _context.Contacts.ToList();
-            //var contacts = _context.Contacts.Include(c => c.ContactType).ToList();
+            var contacts = _context.Contacts.Include(c => c.ContactType).ToList();
 
             return View(contacts);
         }

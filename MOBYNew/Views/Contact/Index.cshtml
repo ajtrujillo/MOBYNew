@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MOBYNew.Models.Contact>
+
 @{
-    ViewData["Title"] = "Contacts";
+    ViewBag.Title= "Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -30,7 +31,7 @@ else
             {
                 <tr>
                     <td>@Html.ActionLink(contact.FirstName + " " + contact.LastName, "Details", "Contacts", new { id = contact.Id }, null)</td>
-                    <td>@contact.ContactType</td>
+                    <td>@contact.ContactType.contactType</td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
