@@ -469,12 +469,41 @@
     <Compile Include="Migrations\201708072006182_SeedConTypes.Designer.cs">
       <DependentUpon>201708072006182_SeedConTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708101559536_AddIncludeStatementforConType.cs" />
+    <Compile Include="Migrations\201708101559536_AddIncludeStatementforConType.Designer.cs">
+      <DependentUpon>201708101559536_AddIncludeStatementforConType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101737078_AddedDBtoItems.cs" />
+    <Compile Include="Migrations\201708101737078_AddedDBtoItems.Designer.cs">
+      <DependentUpon>201708101737078_AddedDBtoItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101742194_AddedGenre.cs" />
+    <Compile Include="Migrations\201708101742194_AddedGenre.Designer.cs">
+      <DependentUpon>201708101742194_AddedGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101746448_AddedGenre2DBintoIDModel.cs" />
+    <Compile Include="Migrations\201708101746448_AddedGenre2DBintoIDModel.Designer.cs">
+      <DependentUpon>201708101746448_AddedGenre2DBintoIDModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101756427_RemovedGenreStringfromItemCS.cs" />
+    <Compile Include="Migrations\201708101756427_RemovedGenreStringfromItemCS.Designer.cs">
+      <DependentUpon>201708101756427_RemovedGenreStringfromItemCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101759418_AddedGenreFK.cs" />
+    <Compile Include="Migrations\201708101759418_AddedGenreFK.Designer.cs">
+      <DependentUpon>201708101759418_AddedGenreFK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708101812433_SeedGenreTable.cs" />
+    <Compile Include="Migrations\201708101812433_SeedGenreTable.Designer.cs">
+      <DependentUpon>201708101812433_SeedGenreTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactStatus.cs" />
     <Compile Include="Models\ContactType.cs" />
     <Compile Include="Models\Discount.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -596,6 +625,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708072006182_SeedConTypes.resx">
       <DependentUpon>201708072006182_SeedConTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101559536_AddIncludeStatementforConType.resx">
+      <DependentUpon>201708101559536_AddIncludeStatementforConType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101737078_AddedDBtoItems.resx">
+      <DependentUpon>201708101737078_AddedDBtoItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101742194_AddedGenre.resx">
+      <DependentUpon>201708101742194_AddedGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101746448_AddedGenre2DBintoIDModel.resx">
+      <DependentUpon>201708101746448_AddedGenre2DBintoIDModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101756427_RemovedGenreStringfromItemCS.resx">
+      <DependentUpon>201708101756427_RemovedGenreStringfromItemCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101759418_AddedGenreFK.resx">
+      <DependentUpon>201708101759418_AddedGenreFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101812433_SeedGenreTable.resx">
+      <DependentUpon>201708101812433_SeedGenreTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

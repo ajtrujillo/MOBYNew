@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 
@@ -6,32 +8,24 @@ namespace MOBYNew.Controllers
 {
     public class ItemController : Controller
     {
-        //// GET: Item/Random
-        //public ActionResult Random()
-        //{
-        //    var item = new Item() { Name = "Watchmen", Id =1};
+        private ApplicationDbContext _context;
 
-        //    var contacts = new List<Contact>
-        //    {
-        //        new Contact() {Name = "Contact 1"},
-        //        new Contact() {Name = "Contact 2"}
-        //    };
+        public ItemController()
+        {
+            _context = new ApplicationDbContext();
+        }
 
-        //    var viewModel = new RandomItemViewModel
-        //    {
-        //        Item = item,
-        //        Contacts = contacts
-        //    };
-
-        //    return View(viewModel);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
         //attribute route with constraints
-        [Route("item/release/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}/{day:regex(\\d{2}):range(1,31)}")]
-        public ActionResult ByReleaseDate(int year, int month, int? day)
-        {
-            return Content(year + "/" + month + "/" + day);
-        }
+        //[Route("item/release/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}/{day:regex(\\d{2}):range(1,31)}")]
+        //public ActionResult ByReleaseDate(int year, int month, int? day)
+        //{
+        //    return Content(year + "/" + month + "/" + day);
+        //}
 
         //// item
         //public ActionResult Index(int? pageIndex, string sortBy)
@@ -44,22 +38,20 @@ namespace MOBYNew.Controllers
         //}     
         public ViewResult Index()
         {
-            var items = GetItems();
+            var items = _context.Items.Include(i => i.Genre).ToList();
 
             return View(items);
 
         }
 
-        private IEnumerable<Item> GetItems()
+        public ActionResult itemDetail(int id)
         {
-            return new List<Item>
-            {
+            var item = _context.Items.Include(i => i.Genre).SingleOrDefault(i => i.Id == id);
 
-                new Item {Name = "Watchmen", Id = 1},
-                new Item {Name = "The Dark Knight Returns", Id = 2},
-                new Item {Name = "Blade of the Immortal", Id = 3}
-            };
+            if (item == null)
+                return HttpNotFound();
 
+            return View(item);
         }
 
     }

@@ -13,14 +13,21 @@
 <table class="table">
     <tr>
         <th>
-            @Model.FirstName @Model.LastName
+            @Html.Display(Model.FirstName + Model.LastName)
         </th>
     </tr>
-    <tr>
-        <td>
-            @Html.Display("name")
-        </td>
-    </tr>
-
 </table>
+<ul>
+    <li>
+        Contact Type: @Model.ContactType
+    </li>
+    @if (Model.DOB.HasValue)
+            {
 
+                var age = DateTime.UtcNow.Year - Model.DOB.Value.Year;
+
+
+        <li>Age: @Html.DisplayTextFor(model => age)</li>
+    }
+
+</ul>

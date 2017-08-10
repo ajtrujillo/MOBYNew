@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MOBYNew.Models
 {
@@ -11,7 +12,11 @@ namespace MOBYNew.Models
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; }
+
+        [ForeignKey("GenreId")]
+        public Genre Genre { get; set; }
+        public int GenreId { get; set; }
+
         public decimal Price { get; set; }
     }
 }

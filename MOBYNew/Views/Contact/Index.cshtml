@@ -33,7 +33,7 @@ else
                 <tr>
                     <td>@Html.ActionLink(contact.FirstName + " " + contact.LastName, "ContactDetail", "Contact", new { id = contact.Id }, null)</td>
                     <td>@contact.ContactType.contactType</td>
-                    @*<td>@contact.ContactStatus.contactStatus</td>*@
+                    <td>@contact.ContactType.ContactStatus</td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
