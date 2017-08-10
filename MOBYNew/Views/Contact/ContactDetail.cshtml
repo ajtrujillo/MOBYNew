@@ -1,7 +1,7 @@
 ﻿@model MOBYNew.Models.Contact
 
 @{
-    ViewBag.Title= Model.FirstName +" "+ Model.LastName;
+    ViewBag.Title = Model.FirstName + " " + Model.LastName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,11 +11,11 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    @*<tr>
+    <tr>
         <th>
-            @Html.Display(model => model.Name)
+            @Model.FirstName @Model.LastName
         </th>
-    </tr>*@
+    </tr>
     <tr>
         <td>
             @Html.Display("name")
