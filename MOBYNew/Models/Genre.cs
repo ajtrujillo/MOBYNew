@@ -14,5 +14,7 @@ namespace MOBYNew.Models
         [Required]
         [StringLength(255)]
         public string genreName { get; set; }
+
+        public string genreCode { get; set; }
     }
 }
