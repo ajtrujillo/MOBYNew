@@ -25,6 +25,11 @@ namespace MOBYNew.Controllers
             _context.Dispose();
         }
 
+        public ActionResult AddContact()
+        {
+            return View();
+        }
+
         public ViewResult Index()
 
         {
