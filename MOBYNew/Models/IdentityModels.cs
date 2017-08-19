@@ -23,6 +23,7 @@ namespace MOBYNew.Models
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<ContactType> ContactTypes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

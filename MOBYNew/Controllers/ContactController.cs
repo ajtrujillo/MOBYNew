@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 using System;
+using MOBYNew.ViewModels;
 
 namespace MOBYNew.Controllers
 {
@@ -17,7 +18,6 @@ namespace MOBYNew.Controllers
         public ContactController()
         {
             _context = new ApplicationDbContext();
-
         }
 
         protected override void Dispose(bool disposing)
@@ -27,14 +27,23 @@ namespace MOBYNew.Controllers
 
         public ActionResult AddContact()
         {
+            var contactTypes = _context.ContactTypes.ToList();
+            var viewModel = new AddContactViewModel
+            {
+                ContactTypes = contactTypes
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AddContactPost(AddContactViewModel viewModel)
+        {
             return View();
         }
 
         public ViewResult Index()
-
         {
             var contacts = _context.Contacts.Include(c => c.ContactType).ToList();
-
             return View(contacts);
         }
 
