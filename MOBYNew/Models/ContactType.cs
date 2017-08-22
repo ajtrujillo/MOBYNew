@@ -23,5 +23,8 @@ namespace MOBYNew.Models
         public int? ContactStatusId { get; set; }
         [ForeignKey("ContactStatusId")]
         public ContactStatus ContactStatus { get; set; }
+
+        public IEnumerable<Contact> Contacts { get; set; }
+
     }
 }

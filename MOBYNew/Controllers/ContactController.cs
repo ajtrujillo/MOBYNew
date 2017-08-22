@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
-using System;
 using MOBYNew.ViewModels;
 
 namespace MOBYNew.Controllers
@@ -12,7 +10,6 @@ namespace MOBYNew.Controllers
     {
 
         // GET: Contact
-
         private ApplicationDbContext _context;
 
         public ContactController()
@@ -25,12 +22,14 @@ namespace MOBYNew.Controllers
             _context.Dispose();
         }
 
-        public ActionResult AddContact()
+        [HttpGet]
+        public ActionResult AddContactGet(Contact contact, AddContactViewModel viewModel)
         {
             var contactTypes = _context.ContactTypes.ToList();
-            var viewModel = new AddContactViewModel
             {
-                ContactTypes = contactTypes
+                //ContactTypes = contactTypes;
+                //contact.FirstName = viewModel.FirstName;
+                //contact.LastName = viewModel.LastName;
             };
             return View(viewModel);
         }
@@ -38,9 +37,18 @@ namespace MOBYNew.Controllers
         [HttpPost]
         public ActionResult AddContactPost(AddContactViewModel viewModel)
         {
-            return View();
+
+            if (ModelState.IsValid)
+            {
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(viewModel);
         }
 
+        //GET: Contact List View
         public ViewResult Index()
         {
             var contacts = _context.Contacts.Include(c => c.ContactType).ToList();

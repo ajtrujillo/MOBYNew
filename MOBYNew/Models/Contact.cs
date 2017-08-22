@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,6 +29,9 @@ namespace MOBYNew.Models
         public DateTime? DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; } = false;
+
+        public virtual IEnumerable<ContactType> contactTypes { get; set; }
+        public virtual IEnumerable<Discount> discounts { get; set; }
 
     }
 }

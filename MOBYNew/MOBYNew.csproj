@@ -48,6 +48,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -427,6 +431,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -545,6 +550,14 @@
     <Compile Include="Migrations\201708181906585_CosmeticAttributeChangestoContactModel.Designer.cs">
       <DependentUpon>201708181906585_CosmeticAttributeChangestoContactModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708202253211_ChangesToAccommodateVM.cs" />
+    <Compile Include="Migrations\201708202253211_ChangesToAccommodateVM.Designer.cs">
+      <DependentUpon>201708202253211_ChangesToAccommodateVM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708202258455_AddDiscountsCollToContact.cs" />
+    <Compile Include="Migrations\201708202258455_AddDiscountsCollToContact.Designer.cs">
+      <DependentUpon>201708202258455_AddDiscountsCollToContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -642,7 +655,7 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Contact\ContactDetail.cshtml" />
     <Content Include="Views\Item\itemDetail.cshtml" />
-    <Content Include="Views\Contact\AddContact.cshtml" />
+    <Content Include="Views\Contact\AddContactGet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -738,6 +751,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708181906585_CosmeticAttributeChangestoContactModel.resx">
       <DependentUpon>201708181906585_CosmeticAttributeChangestoContactModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708202253211_ChangesToAccommodateVM.resx">
+      <DependentUpon>201708202253211_ChangesToAccommodateVM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708202258455_AddDiscountsCollToContact.resx">
+      <DependentUpon>201708202258455_AddDiscountsCollToContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

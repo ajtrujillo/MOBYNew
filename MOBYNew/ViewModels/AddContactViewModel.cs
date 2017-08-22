@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,9 @@ namespace MOBYNew.ViewModels
 {
     public class AddContactViewModel
     {
-        public IEnumerable<ContactType> ContactTypes { get; set; }
+        //[Key]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -27,7 +30,8 @@ namespace MOBYNew.ViewModels
         public ContactType contactType { get; set; }
         public int contactTypeId {get;set;}
 
+        public IEnumerable<ContactType> ContactTypes { get; set; }
+        public IEnumerable<ContactStatus> ContactStatus { get; set; }
 
-
-}
+    }
 }
