@@ -22,13 +22,13 @@ namespace MOBYNew.ViewModels
         public string LastName { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
+        public DateTime DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; } = false;
 
         [Display(Name = "Type")]
         public ContactType contactType { get; set; }
-        public int? contactTypeId {get;set;}
+        public int contactTypeId {get;set;}
 
         public IEnumerable<ContactType> ContactTypes { get; set; }
         public IEnumerable<ContactStatus> ContactStatus { get; set; }
