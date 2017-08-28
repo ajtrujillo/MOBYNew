@@ -14,6 +14,13 @@ namespace MOBYNew.ViewModels
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         //public int Id { get; set; }
 
+        public Contact contact { get; set; }
+
+        public AddContactViewModel()
+        {
+            this.contact = new Contact();
+        }
+
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -22,13 +29,13 @@ namespace MOBYNew.ViewModels
         public string LastName { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public DateTime DOB { get; set; }
+        public DateTime? DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; } = false;
 
         [Display(Name = "Type")]
         public ContactType contactType { get; set; }
-        public int contactTypeId {get;set;}
+        public int? contactTypeId {get;set;}
 
         public IEnumerable<ContactType> ContactTypes { get; set; }
         public IEnumerable<ContactStatus> ContactStatus { get; set; }

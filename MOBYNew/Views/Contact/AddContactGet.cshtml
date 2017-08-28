@@ -26,10 +26,10 @@
             @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter) Subscribed to Newsletter
         </label>
     </div>
-    @*<div class="form-group">
+    <div class="form-group">
         @Html.LabelFor(m => m.contactType)
-        @Html.DropDownListFor(m => m.contactTypeId, new SelectList(Model.ContactTypes, "Id", "contactType"), "Select", new { @class = "form-control" })
-    </div>*@
+        @Html.DropDownListFor(m => m.contactType, new SelectList(Model.ContactTypes, "contactType"), "--Select--", new { @class = "form-control" })
+    </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
 }

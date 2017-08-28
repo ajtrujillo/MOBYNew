@@ -558,6 +558,10 @@
     <Compile Include="Migrations\201708202258455_AddDiscountsCollToContact.Designer.cs">
       <DependentUpon>201708202258455_AddDiscountsCollToContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708281805116_AddedNullablestoContactModel.cs" />
+    <Compile Include="Migrations\201708281805116_AddedNullablestoContactModel.Designer.cs">
+      <DependentUpon>201708281805116_AddedNullablestoContactModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -757,6 +761,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708202258455_AddDiscountsCollToContact.resx">
       <DependentUpon>201708202258455_AddDiscountsCollToContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708281805116_AddedNullablestoContactModel.resx">
+      <DependentUpon>201708281805116_AddedNullablestoContactModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
