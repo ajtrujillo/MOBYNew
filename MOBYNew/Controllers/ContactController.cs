@@ -3,13 +3,13 @@ using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 using MOBYNew.ViewModels;
+using AutoMapper;
 
 namespace MOBYNew.Controllers
 {
     public class ContactController : Controller
     {
 
-        // GET: Contact
         private ApplicationDbContext _context;
 
         public ContactController()
@@ -23,29 +23,38 @@ namespace MOBYNew.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddContactGet(Contact contact, AddContactViewModel viewModel)
+        public ActionResult AddContactGet()//Contact contact, AddContactViewModel viewModel)
         {
             var contactTypes = _context.ContactTypes.ToList();
+            var viewmodel = new AddContactViewModel
             {
-                //ContactTypes = contactTypes;
+                ContactTypes = contactTypes
                 //contact.FirstName = viewModel.FirstName;
                 //contact.LastName = viewModel.LastName;
             };
-            return View(viewModel);
+            return View(viewmodel);
         }
 
         [HttpPost]
-        public ActionResult AddContactPost(AddContactViewModel viewModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddContactPost(AddContactViewModel viewmodel)
         {
+            _context.Contacts.Add(viewmodel);
+
+            var createContactModel = _context.Contacts.Find(AddContactViewModel.Id);
+            AddContactViewModel dto = Mapper.Map<AddContactViewModel>(Contact);
 
             if (ModelState.IsValid)
-            {
-                _context.SaveChanges();
+                //    {
+                //        _context.Contacts.Add(new Contact
+                //        {
+                //            FirstName = this.
+                //        });
+                //        _context.SaveChanges();
+                //        return RedirectToAction("Index");
+                //    }
 
-                return RedirectToAction("Index");
-            }
-
-            return View(viewModel);
+                return View(createContactModel);
         }
 
         //GET: Contact List View

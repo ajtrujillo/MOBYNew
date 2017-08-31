@@ -14,13 +14,6 @@ namespace MOBYNew.ViewModels
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         //public int Id { get; set; }
 
-        public Contact contact { get; set; }
-
-        public AddContactViewModel()
-        {
-            this.contact = new Contact();
-        }
-
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
