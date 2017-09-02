@@ -23,38 +23,34 @@ namespace MOBYNew.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddContactGet()//Contact contact, AddContactViewModel viewModel)
+        public ActionResult AddContactGet()
         {
             var contactTypes = _context.ContactTypes.ToList();
             var viewmodel = new AddContactViewModel
             {
                 ContactTypes = contactTypes
-                //contact.FirstName = viewModel.FirstName;
-                //contact.LastName = viewModel.LastName;
             };
             return View(viewmodel);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult AddContactPost(AddContactViewModel viewmodel)
         {
-            _context.Contacts.Add(viewmodel);
-
-            var createContactModel = _context.Contacts.Find(AddContactViewModel.Id);
-            AddContactViewModel dto = Mapper.Map<AddContactViewModel>(Contact);
-
             if (ModelState.IsValid)
-                //    {
-                //        _context.Contacts.Add(new Contact
-                //        {
-                //            FirstName = this.
-                //        });
-                //        _context.SaveChanges();
-                //        return RedirectToAction("Index");
-                //    }
+            {
+                _context.Contacts.Add(new Contact
+                {
+                    ContactType = viewmodel.contactType,
+                    FirstName = viewmodel.FirstName,
+                    LastName = viewmodel.LastName,
+                    DOB = viewmodel.DOB,
+                    IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
+                });
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Contact");
+            }
 
-                return View(createContactModel);
+            return View(viewmodel);
         }
 
         //GET: Contact List View
