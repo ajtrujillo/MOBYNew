@@ -34,13 +34,13 @@ namespace MOBYNew.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddContactPost(AddContactViewModel viewmodel)
-        {
-            if (ModelState.IsValid)
+        public ActionResult AddContactPost(AddContactViewModel viewmodel, int contactTypeId)
+        {                   
+                if (ModelState.IsValid)
             {
                 _context.Contacts.Add(new Contact
                 {
-                    ContactType = viewmodel.contactType,
+                    ContactType = viewmodel.ContactTypes.SingleOrDefault(c=> c.Id == contactTypeId),
                     FirstName = viewmodel.FirstName,
                     LastName = viewmodel.LastName,
                     DOB = viewmodel.DOB,
