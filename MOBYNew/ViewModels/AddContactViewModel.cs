@@ -28,7 +28,7 @@ namespace MOBYNew.ViewModels
 
         [Display(Name = "Type")]
         public ContactType contactType { get; set; }
-        public int? contactTypeId {get;set;}
+        public int contactTypeId {get;set;}
 
         public IEnumerable<ContactType> ContactTypes { get; set; } 
         //public IEnumerable<ContactStatus> ContactStatus { get; set; }

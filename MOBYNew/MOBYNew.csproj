@@ -562,6 +562,14 @@
     <Compile Include="Migrations\201708281805116_AddedNullablestoContactModel.Designer.cs">
       <DependentUpon>201708281805116_AddedNullablestoContactModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709042126027_RemovedDefaultFalseonIsSubbed.cs" />
+    <Compile Include="Migrations\201709042126027_RemovedDefaultFalseonIsSubbed.Designer.cs">
+      <DependentUpon>201709042126027_RemovedDefaultFalseonIsSubbed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709042215485_ChangedNullableIntonAddVM.cs" />
+    <Compile Include="Migrations\201709042215485_ChangedNullableIntonAddVM.Designer.cs">
+      <DependentUpon>201709042215485_ChangedNullableIntonAddVM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -764,6 +772,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708281805116_AddedNullablestoContactModel.resx">
       <DependentUpon>201708281805116_AddedNullablestoContactModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709042126027_RemovedDefaultFalseonIsSubbed.resx">
+      <DependentUpon>201709042126027_RemovedDefaultFalseonIsSubbed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709042215485_ChangedNullableIntonAddVM.resx">
+      <DependentUpon>201709042215485_ChangedNullableIntonAddVM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

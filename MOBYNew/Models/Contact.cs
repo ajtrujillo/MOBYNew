@@ -28,7 +28,7 @@ namespace MOBYNew.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DOB { get; set; }
 
-        public bool IsSubscribedToNewsletter { get; set; } = false;
+        public bool IsSubscribedToNewsletter { get; set; }
 
         public virtual IEnumerable<ContactType> contactTypes { get; set; }
         public virtual IEnumerable<Discount> discounts { get; set; }

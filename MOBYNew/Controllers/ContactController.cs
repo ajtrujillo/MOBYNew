@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using MOBYNew.Models;
 using MOBYNew.ViewModels;
 using AutoMapper;
+using System.Collections.Generic;
 
 namespace MOBYNew.Controllers
 {
@@ -11,6 +12,7 @@ namespace MOBYNew.Controllers
     {
 
         private ApplicationDbContext _context;
+        //private List<ContactType> ContactTypes;
 
         public ContactController()
         {
@@ -35,12 +37,15 @@ namespace MOBYNew.Controllers
 
         [HttpPost]
         public ActionResult AddContactPost(AddContactViewModel viewmodel, int contactTypeId)
-        {                   
-                if (ModelState.IsValid)
+        {
+            ApplicationDbContext _testdb = new ApplicationDbContext();
+            Contact dataModelContact = _testdb.Contacts.Where(c => c.ContactTypeId == contactTypeId).First();
+
+            if (ModelState.IsValid)
             {
                 _context.Contacts.Add(new Contact
                 {
-                    ContactType = viewmodel.ContactTypes.SingleOrDefault(c=> c.Id == contactTypeId),
+                    ContactTypeId = viewmodel.contactTypeId,
                     FirstName = viewmodel.FirstName,
                     LastName = viewmodel.LastName,
                     DOB = viewmodel.DOB,
