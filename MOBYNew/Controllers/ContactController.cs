@@ -12,7 +12,6 @@ namespace MOBYNew.Controllers
     {
 
         private ApplicationDbContext _context;
-        //private List<ContactType> ContactTypes;
 
         public ContactController()
         {
@@ -28,18 +27,17 @@ namespace MOBYNew.Controllers
         public ActionResult AddContactGet()
         {
             var contactTypes = _context.ContactTypes.ToList();
-            var viewmodel = new AddContactViewModel
+            var viewmodel = new EditContactViewModel
             {
                 ContactTypes = contactTypes
             };
-            return View(viewmodel);
+            return View("EditContact", viewmodel);
         }
 
         [HttpPost]
-        public ActionResult AddContactPost(AddContactViewModel viewmodel, int contactTypeId)
+        public ActionResult AddContactPost(EditContactViewModel viewmodel, int contactTypeId)
         {
-            ApplicationDbContext _testdb = new ApplicationDbContext();
-            Contact dataModelContact = _testdb.Contacts.Where(c => c.ContactTypeId == contactTypeId).First();
+            ApplicationDbContext _addContactContext = new ApplicationDbContext();
 
             if (ModelState.IsValid)
             {
@@ -51,6 +49,7 @@ namespace MOBYNew.Controllers
                     DOB = viewmodel.DOB,
                     IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
                 });
+
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Contact");
             }
@@ -77,6 +76,24 @@ namespace MOBYNew.Controllers
             }
         }
 
+        //GET: Contact Edit view
+        public ActionResult EditContact(int id)
+        {
+            var contact = _context.Contacts.SingleOrDefault(c => c.Id == id);
 
+            if (contact == null)
+                return HttpNotFound();
+
+            var viewModel = new EditContactViewModel
+            {
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                DOB = contact.DOB,
+                IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                ContactTypes = _context.ContactTypes.ToList()
+            };
+
+            return View("EditContact", viewModel);
+        }
     }
 }

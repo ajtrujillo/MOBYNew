@@ -8,7 +8,7 @@ using System.Web;
 
 namespace MOBYNew.ViewModels
 {
-    public class AddContactViewModel
+    public class EditContactViewModel
     {
         //[Key]
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]

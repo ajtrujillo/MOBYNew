@@ -14,7 +14,7 @@ namespace MOBYNew.App_Start
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Contact, AddContactViewModel>()
+                cfg.CreateMap<Contact, EditContactViewModel>()
                 .ForAllMembers(opt => opt.Condition(r => r != null));
             });
         }

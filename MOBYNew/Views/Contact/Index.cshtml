@@ -8,7 +8,7 @@
 <h2>Contacts</h2>
 
 <p>
-    @Html.ActionLink("Add New Contact", "AddContactGet")
+    @Html.ActionLink("Add Contact", "AddContactGet")
 
 @if (Model.Any()==false)
 {
@@ -34,7 +34,8 @@ else
                     <td>@contact.ContactType.contactType</td>
                     <td>@contact.ContactType.ContactStatus</td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                        @*@HtmlActionLink(string linkText, string actionName, Object routeValues)*@
+                        @Html.ActionLink("Edit", "EditContact", new { id = contact.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
                     </td>
