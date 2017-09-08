@@ -8,18 +8,19 @@
 <h2>Contact Detail</h2>
 
 <p>
-    @Html.ActionLink("Update Contact", "UpdateContact")
+    @Html.ActionLink("Update Contact", "UpdateContactGet")
 </p>
 <table class="table">
     <tr>
         <th>
-           @Html.Display(Model.FirstName + Model.LastName)
+            @*@Html.Display(Model.FirstName + " " + Model.LastName)*@
         </th>
     </tr>
 </table>
 <ul>
     <li>
-        Contact Type: @Html.Display(Model.ContactType.ToString())
+        @*@{string type = Model.ContactType.ToString(); }*@
+        Contact Type: @*@Html.DisplayTextFor(model => type)*@
     </li>
     @if (Model.DOB.HasValue)
             {

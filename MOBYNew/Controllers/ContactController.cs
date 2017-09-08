@@ -93,14 +93,14 @@ namespace MOBYNew.Controllers
 
         //    if (ModelState.IsValid)
         //    {
-        //    _context.Contacts.Add(new Contact
-        //            {
-        //                ContactTypeId = viewmodel.contactTypeId,
-        //                FirstName = viewmodel.FirstName,
-        //                LastName = viewmodel.LastName,
-        //                DOB = viewmodel.DOB,
-        //                IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
-        //});
+        //        _context.Contacts.Add(new Contact
+        //        {
+        //            ContactTypeId = viewmodel.contactTypeId,
+        //            FirstName = viewmodel.FirstName,
+        //            LastName = viewmodel.LastName,
+        //            DOB = viewmodel.DOB,
+        //            IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
+        //        });
 
         //        _context.SaveChanges();
         //        return RedirectToAction("Index", "Contact");
@@ -110,46 +110,46 @@ namespace MOBYNew.Controllers
         //}
 
         [HttpPost]
-        public ActionResult ContactPost(ContactFormBaseViewModel viewmodel, int id)
+        public ActionResult ContactPost(ContactFormBaseViewModel viewmodel, int? id)
         {
             if (ModelState.IsValid)
             {
-                using (var context = new ApplicationDbContext())
+                var context = new ApplicationDbContext();
+                if (id != null)
+                //{
+                //    if (context.Contacts.Any(x => x.Id == id))
                 {
-                    if (context.Contacts.Any(x => x.Id == id))
+                    var updateContact = from contact in context.Contacts
+                                        where contact.Id == id
+                                        select contact;
+
+                    foreach (Contact contactAttribute in updateContact)
                     {
-                        var updateContact = from contact in context.Contacts
-                                            where contact.Id == id
-                                            select contact;
-
-                        foreach (Contact contactAttribute in updateContact)
-                        {
-                            contactAttribute.FirstName = viewmodel.FirstName;
-                            contactAttribute.LastName = viewmodel.LastName;
-                            contactAttribute.DOB = viewmodel.DOB;
-                            contactAttribute.IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter;
-                            contactAttribute.ContactType = viewmodel.contactType;
-                        }
+                        contactAttribute.FirstName = viewmodel.FirstName;
+                        contactAttribute.LastName = viewmodel.LastName;
+                        contactAttribute.DOB = viewmodel.DOB;
+                        contactAttribute.IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter;
+                        contactAttribute.ContactType = viewmodel.contactType;
                     }
-
-                    else
-                    {
-                        _context.Contacts.Add(new Contact
-                        {
-                            ContactTypeId = viewmodel.contactTypeId,
-                            FirstName = viewmodel.FirstName,
-                            LastName = viewmodel.LastName,
-                            DOB = viewmodel.DOB,
-                            IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
-                        });
-                    }
-
-                    _context.SaveChanges();
-                    return RedirectToAction("Index", "Contact");
                 }
+
+                else
+                {
+                    _context.Contacts.Add(new Contact
+                    {
+                        ContactTypeId = viewmodel.contactTypeId,
+                        FirstName = viewmodel.FirstName,
+                        LastName = viewmodel.LastName,
+                        DOB = viewmodel.DOB,
+                        IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
+                    });
+                }
+
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Contact");
             }
             return View(viewmodel);
+
         }
     }
-
 }
