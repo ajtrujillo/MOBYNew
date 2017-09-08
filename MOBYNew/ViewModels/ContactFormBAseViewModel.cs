@@ -8,11 +8,14 @@ using System.Web;
 
 namespace MOBYNew.ViewModels
 {
-    public class EditContactViewModel
+    public class ContactFormBaseViewModel
     {
         //[Key]
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         //public int Id { get; set; }
+
+        [Display(Name = "Join Date")]
+        private DateTime JoinDate { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -28,10 +31,10 @@ namespace MOBYNew.ViewModels
 
         [Display(Name = "Type")]
         public ContactType contactType { get; set; }
-        public int contactTypeId {get;set;}
+        public int contactTypeId { get; set; }
 
-        public IEnumerable<ContactType> ContactTypes { get; set; } 
-        //public IEnumerable<ContactStatus> ContactStatus { get; set; }
+        public IEnumerable<ContactType> ContactTypes { get; set; }
+        public IEnumerable<ContactStatus> ContactStatus { get; set; }
 
     }
 }

@@ -1,0 +1,36 @@
+﻿@model MOBYNew.ViewModels.AddContactViewModel
+
+@{
+    ViewBag.Title = "Add Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add A Contact</h2>
+
+@using (Html.BeginForm("ContactPost", "Contact", FormMethod.Post))
+{ 
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DOB)
+        @Html.TextBoxFor(m => m.DOB, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.contactType)
+        @Html.DropDownListFor(m => m.contactTypeId, new SelectList(Model.ContactTypes, "Id", "contactType"), "--Select--", new { @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter) Subscribed to Newsletter
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}

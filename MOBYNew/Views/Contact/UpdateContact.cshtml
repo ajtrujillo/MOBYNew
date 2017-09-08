@@ -1,14 +1,18 @@
-﻿@model MOBYNew.ViewModels.EditContactViewModel
+﻿@model MOBYNew.ViewModels.UpdateContactViewModel
 
 @{
-    ViewBag.Title = "Add Contact";
+    ViewBag.Title = "Update Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add A Contact</h2>
+<h2>Update A Contact</h2>
 
-@using (Html.BeginForm("AddContactPost", "Contact"))
-{
+@using (Html.BeginForm("ContactPost", "Contact", FormMethod.Post))
+{       
+    <div class="form-group">
+        @Html.LabelFor(m => m.JoinDate)
+        @Html.DisplayTextFor(m => m.JoinDate)
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.FirstName)
         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })

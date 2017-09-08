@@ -35,7 +35,7 @@ else
                     <td>@contact.ContactType.ContactStatus</td>
                     <td>
                         @*@HtmlActionLink(string linkText, string actionName, Object routeValues)*@
-                        @Html.ActionLink("Edit", "EditContact", new { id = contact.Id }) |
+                        @Html.ActionLink("Edit", "UpdateContactGet", new { id = contact.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
                     </td>

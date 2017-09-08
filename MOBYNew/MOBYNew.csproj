@@ -570,6 +570,10 @@
     <Compile Include="Migrations\201709042215485_ChangedNullableIntonAddVM.Designer.cs">
       <DependentUpon>201709042215485_ChangedNullableIntonAddVM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709082004015_AlteredJoinDate.cs" />
+    <Compile Include="Migrations\201709082004015_AlteredJoinDate.Designer.cs">
+      <DependentUpon>201709082004015_AlteredJoinDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -583,7 +587,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\EditContactViewModel.cs" />
+    <Compile Include="ViewModels\UpdateContactViewModel.cs" />
+    <Compile Include="ViewModels\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\ContactFormBaseViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\RandomItemViewModel.cs" />
   </ItemGroup>
@@ -667,7 +673,8 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Contact\ContactDetail.cshtml" />
     <Content Include="Views\Item\itemDetail.cshtml" />
-    <Content Include="Views\Contact\EditContact.cshtml" />
+    <Content Include="Views\Contact\AddContact.cshtml" />
+    <Content Include="Views\Contact\UpdateContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -778,6 +785,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709042215485_ChangedNullableIntonAddVM.resx">
       <DependentUpon>201709042215485_ChangedNullableIntonAddVM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709082004015_AlteredJoinDate.resx">
+      <DependentUpon>201709082004015_AlteredJoinDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
