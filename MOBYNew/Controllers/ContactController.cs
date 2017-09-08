@@ -55,6 +55,7 @@ namespace MOBYNew.Controllers
         }
 
         //GET: Update Contact Form
+        //TODO: Repopulate this form with existing Contact Data
         [HttpGet]
         public ActionResult UpdateContactGet()
         {
@@ -110,27 +111,22 @@ namespace MOBYNew.Controllers
         //}
 
         [HttpPost]
-        public ActionResult ContactPost(ContactFormBaseViewModel viewmodel, int? id)
+        public ActionResult ContactPost(UpdateContactViewModel viewmodel, int? id)
         {
             if (ModelState.IsValid)
             {
                 var context = new ApplicationDbContext();
-                if (id != null)
-                //{
-                //    if (context.Contacts.Any(x => x.Id == id))
-                {
-                    var updateContact = from contact in context.Contacts
-                                        where contact.Id == id
-                                        select contact;
 
-                    foreach (Contact contactAttribute in updateContact)
-                    {
-                        contactAttribute.FirstName = viewmodel.FirstName;
-                        contactAttribute.LastName = viewmodel.LastName;
-                        contactAttribute.DOB = viewmodel.DOB;
-                        contactAttribute.IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter;
-                        contactAttribute.ContactType = viewmodel.contactType;
-                    }
+                if (id != null)
+
+                {
+                    var contactQuery = _context.Contacts.Single(x => x.Id == id);
+
+                    contactQuery.FirstName = viewmodel.FirstName;
+                    contactQuery.LastName = viewmodel.LastName;
+                    contactQuery.DOB = viewmodel.DOB;
+                    contactQuery.IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter;
+                    contactQuery.ContactType = viewmodel.contactType;
                 }
 
                 else
@@ -141,14 +137,15 @@ namespace MOBYNew.Controllers
                         FirstName = viewmodel.FirstName,
                         LastName = viewmodel.LastName,
                         DOB = viewmodel.DOB,
-                        IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter
+                        IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter,
+                        //JoinDate = DateTime.Now()
                     });
                 }
 
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Contact");
             }
-            return View(viewmodel);
+            return View("UpdateContact", viewmodel);
 
         }
     }
