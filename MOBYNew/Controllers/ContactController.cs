@@ -138,6 +138,7 @@ namespace MOBYNew.Controllers
                         LastName = viewmodel.LastName,
                         DOB = viewmodel.DOB,
                         IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter,
+                        //TODO: Update the contact's Join Date
                         //JoinDate = DateTime.Now()
                     });
                 }
