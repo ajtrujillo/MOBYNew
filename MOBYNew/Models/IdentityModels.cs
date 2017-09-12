@@ -24,6 +24,7 @@ namespace MOBYNew.Models
         public DbSet<Item> Items { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
+        public DbSet<ContactStatus> ContactStatus { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

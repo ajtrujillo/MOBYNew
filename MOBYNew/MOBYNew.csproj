@@ -574,6 +574,14 @@
     <Compile Include="Migrations\201709082004015_AlteredJoinDate.Designer.cs">
       <DependentUpon>201709082004015_AlteredJoinDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709102249441_AddedContactStatusDbSet.cs" />
+    <Compile Include="Migrations\201709102249441_AddedContactStatusDbSet.Designer.cs">
+      <DependentUpon>201709102249441_AddedContactStatusDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709110031554_AlteredStatusandTypeModels.cs" />
+    <Compile Include="Migrations\201709110031554_AlteredStatusandTypeModels.Designer.cs">
+      <DependentUpon>201709110031554_AlteredStatusandTypeModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -788,6 +796,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709082004015_AlteredJoinDate.resx">
       <DependentUpon>201709082004015_AlteredJoinDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709102249441_AddedContactStatusDbSet.resx">
+      <DependentUpon>201709102249441_AddedContactStatusDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709110031554_AlteredStatusandTypeModels.resx">
+      <DependentUpon>201709110031554_AlteredStatusandTypeModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
