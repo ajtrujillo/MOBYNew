@@ -62,54 +62,64 @@ namespace MOBYNew.Controllers
         {
             var contactTypes = _context.ContactTypes.ToList();
 
+            var contact = _context.Contacts.SingleOrDefault(c => c.Id == id);
+
+            if (contact == null)
+                return HttpNotFound();
+
             var viewmodel = new UpdateContactViewModel
             {
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                DOB = contact.DOB,
+                IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
                 ContactTypes = contactTypes
             };
 
             return View("UpdateContact", viewmodel);
-
         }
 
 
         [HttpPost]
-        public ActionResult ContactPost(UpdateContactViewModel viewmodel, int? id)
+        public ActionResult ContactPost(int? id)
         {
+            var contactTypes = _context.ContactTypes.ToList();
+
+            var contact = _context.Contacts.Single(x => x.Id == id);
+
             if (ModelState.IsValid)
             {
-                var context = new ApplicationDbContext();
-
-                if (id != null)
-
+                var viewmodel = new UpdateContactViewModel
                 {
-                    var contactQuery = _context.Contacts.Single(x => x.Id == id);
+                    FirstName = contact.FirstName,
+                    LastName = contact.LastName,
+                    DOB = contact.DOB,
+                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                    ContactTypes = contactTypes
+                };
 
-                    contactQuery.FirstName = viewmodel.FirstName;
-                    contactQuery.LastName = viewmodel.LastName;
-                    contactQuery.DOB = viewmodel.DOB;
-                    contactQuery.IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter;
-                    contactQuery.ContactType = viewmodel.contactType;
-                }
-
-                else
-                {
-                    _context.Contacts.Add(new Contact
-                    {
-                        ContactTypeId = viewmodel.contactTypeId,
-                        FirstName = viewmodel.FirstName,
-                        LastName = viewmodel.LastName,
-                        DOB = viewmodel.DOB,
-                        IsSubscribedToNewsletter = viewmodel.IsSubscribedToNewsletter,
-                        //TODO: Update the contact's Join Date
-                        //JoinDate = DateTime.Now()
-                    });
-                }
-
-                _context.SaveChanges();
-                return RedirectToAction("Index", "Contact");
+                return View("UpdateContact", viewmodel);
             }
-            return View("UpdateContact", viewmodel);
 
+            if (id != null)
+                _context.Contacts.Add(contact);
+
+            else
+            {
+                _context.Contacts.Add(new Contact
+                {
+                    FirstName = contact.FirstName,
+                    LastName = contact.LastName,
+                    DOB = contact.DOB,
+                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                    //TODO: Update the contact's Join Date
+                    //JoinDate = DateTime.Now()
+                });
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Contact");
         }
+
     }
 }
