@@ -428,6 +428,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -442,6 +449,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ItemList.aspx.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemList.aspx.designer.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ShoppingCartActions.cs" />
     <Compile Include="Migrations\201708071847196_SecondInitialMigration.cs" />
     <Compile Include="Migrations\201708071847196_SecondInitialMigration.Designer.cs">
       <DependentUpon>201708071847196_SecondInitialMigration.cs</DependentUpon>
@@ -582,8 +597,29 @@
     <Compile Include="Migrations\201709110031554_AlteredStatusandTypeModels.Designer.cs">
       <DependentUpon>201709110031554_AlteredStatusandTypeModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709152030123_ChangedItemCS.cs" />
+    <Compile Include="Migrations\201709152030123_ChangedItemCS.Designer.cs">
+      <DependentUpon>201709152030123_ChangedItemCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709152035363_AlteredCategoryCS.cs" />
+    <Compile Include="Migrations\201709152035363_AlteredCategoryCS.Designer.cs">
+      <DependentUpon>201709152035363_AlteredCategoryCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709172240207_SeedCategoryDatabase.cs" />
+    <Compile Include="Migrations\201709172240207_SeedCategoryDatabase.Designer.cs">
+      <DependentUpon>201709172240207_SeedCategoryDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709172242153_TryAgainSeedCategoryDatabase.cs" />
+    <Compile Include="Migrations\201709172242153_TryAgainSeedCategoryDatabase.Designer.cs">
+      <DependentUpon>201709172242153_TryAgainSeedCategoryDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709172305439_AddingMoreItemstoDB.cs" />
+    <Compile Include="Migrations\201709172305439_AddingMoreItemstoDB.Designer.cs">
+      <DependentUpon>201709172305439_AddingMoreItemstoDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactStatus.cs" />
@@ -594,6 +630,13 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\UpdateContactViewModel.cs" />
     <Compile Include="ViewModels\AddContactViewModel.cs" />
@@ -602,6 +645,7 @@
     <Compile Include="ViewModels\RandomItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddToCart.aspx" />
     <Content Include="Content\bootstrap-readable.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -624,6 +668,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="ItemList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -641,6 +686,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -802,6 +848,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709110031554_AlteredStatusandTypeModels.resx">
       <DependentUpon>201709110031554_AlteredStatusandTypeModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709152030123_ChangedItemCS.resx">
+      <DependentUpon>201709152030123_ChangedItemCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709152035363_AlteredCategoryCS.resx">
+      <DependentUpon>201709152035363_AlteredCategoryCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709172240207_SeedCategoryDatabase.resx">
+      <DependentUpon>201709172240207_SeedCategoryDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709172242153_TryAgainSeedCategoryDatabase.resx">
+      <DependentUpon>201709172242153_TryAgainSeedCategoryDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709172305439_AddingMoreItemstoDB.resx">
+      <DependentUpon>201709172305439_AddingMoreItemstoDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,10 +11,14 @@ namespace MOBYNew.Models
 		[Key]
 		public int Id { get; set; }
 
-		[Required]
-		[StringLength(255)]
-		public string categoryName { get; set; }
+		[Required, StringLength(255), Display(Name ="Name")]
+		public string CategoryName { get; set; }
 
-		public int categoryCode { get; set; }
+        [Display(Name ="Category Description")]
+        public string CategoryDescription { get; set; }
+
+		public int? CategoryCode { get; set; }
+
+        public virtual ICollection<Item> Items { get; set; }
 	}
 }
