@@ -9,9 +9,6 @@ namespace MOBYNew.Models
 {
     public class ContactStatus
     {
-        //public ContactStatus()
-        //{ }
-
         public enum StatusType
         { Active, Inactive }
 
@@ -19,7 +16,7 @@ namespace MOBYNew.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        //public string contactStatus { get; set; } = "Active";
+        public string contactStatus { get; set; }
 
         public StatusType? statusType { get; set; }
 

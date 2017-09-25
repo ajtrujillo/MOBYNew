@@ -1,7 +1,9 @@
 ﻿using System.Web.Mvc;
+using System.Data.Entity;
 using System.Web.Optimization;
 using System.Web.Routing;
-using AutoMapper;
+using MOBYNew.Models;
+using MOBYNew.App_Start;
 
 namespace MOBYNew
 {

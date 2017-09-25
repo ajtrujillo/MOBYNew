@@ -3,13 +3,15 @@ using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 using MOBYNew.ViewModels;
+using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using System.Collections.Generic;
 
 namespace MOBYNew.Controllers
 {
     public class ContactController : Controller
     {
 
-        // GET: Contact
         private ApplicationDbContext _context;
 
         public ContactController()
@@ -20,32 +22,6 @@ namespace MOBYNew.Controllers
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
-        }
-
-        [HttpGet]
-        public ActionResult AddContactGet(Contact contact, AddContactViewModel viewModel)
-        {
-            var contactTypes = _context.ContactTypes.ToList();
-            {
-                //ContactTypes = contactTypes;
-                //contact.FirstName = viewModel.FirstName;
-                //contact.LastName = viewModel.LastName;
-            };
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public ActionResult AddContactPost(AddContactViewModel viewModel)
-        {
-
-            if (ModelState.IsValid)
-            {
-                _context.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            return View(viewModel);
         }
 
         //GET: Contact List View
@@ -67,6 +43,83 @@ namespace MOBYNew.Controllers
             }
         }
 
+        //GET: Add Contact Form
+        [HttpGet]
+        public ActionResult AddContactGet()
+        {
+            var contactTypes = _context.ContactTypes.ToList();
+
+            var viewmodel = new AddContactViewModel
+            {
+                ContactTypes = contactTypes
+            };
+            return View("AddContact", viewmodel);
+        }
+
+        //GET: Update Contact Form
+        [HttpGet]
+        public ActionResult UpdateContactGet(int id)
+        {
+            var contactTypes = _context.ContactTypes.ToList();
+
+            var contact = _context.Contacts.SingleOrDefault(c => c.Id == id);
+
+            if (contact == null)
+                return HttpNotFound();
+
+            var viewmodel = new UpdateContactViewModel
+            {
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                DOB = contact.DOB,
+                IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                ContactTypes = contactTypes
+            };
+
+            return View("UpdateContact", viewmodel);
+        }
+
+
+        [HttpPost]
+        public ActionResult ContactPost(int? id)
+        {
+            var contactTypes = _context.ContactTypes.ToList();
+
+            var contact = _context.Contacts.Single(x => x.Id == id);
+
+            if (ModelState.IsValid)
+            {
+                var viewmodel = new UpdateContactViewModel
+                {
+                    FirstName = contact.FirstName,
+                    LastName = contact.LastName,
+                    DOB = contact.DOB,
+                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                    ContactTypes = contactTypes
+                };
+
+                return View("UpdateContact", viewmodel);
+            }
+
+            if (id != null)
+                _context.Contacts.Add(contact);
+
+            else
+            {
+                _context.Contacts.Add(new Contact
+                {
+                    FirstName = contact.FirstName,
+                    LastName = contact.LastName,
+                    DOB = contact.DOB,
+                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
+                    //TODO: Update the contact's Join Date
+                    //JoinDate = DateTime.Now()
+                });
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Contact");
+        }
 
     }
 }

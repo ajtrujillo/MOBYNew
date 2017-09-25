@@ -8,11 +8,12 @@ namespace MOBYNew.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+
+        [Required, StringLength(100), Display(Name ="Name")]
+        public string ItemName { get; set; }
 
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
-
         public DateTime ReleaseDate { get; set; }
 
         [ForeignKey("GenreId")]
@@ -20,13 +21,18 @@ namespace MOBYNew.Models
         public int GenreId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
-        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+        public int? CategoryId { get; set; }
 
-        public decimal Price { get; set; }
+        [Display(Name = "Item Description")]
+        public string ItemDescription { get; set; }
 
-        public double ISBN13EAN { get; set; }
+        public string ImagePath { get; set; }
 
-        public int QtyInStock { get; set; }
+        public double? Price { get; set; }
+
+        public double? ISBN13EAN { get; set; }
+
+        public int? QtyInStock { get; set; }
     }
 }

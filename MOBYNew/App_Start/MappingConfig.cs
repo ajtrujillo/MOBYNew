@@ -12,8 +12,10 @@ namespace MOBYNew.App_Start
     {
         public static void RegisterMaps()
         {
-            Mapper.Initialize(cfg => {
-                cfg.CreateMap<Contact, AddContactViewModel>();
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Contact, ContactFormBaseViewModel>()
+                .ForAllMembers(opt => opt.Condition(r => r != null));
             });
         }
     }

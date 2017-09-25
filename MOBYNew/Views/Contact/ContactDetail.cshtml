@@ -1,31 +1,29 @@
 ﻿@model MOBYNew.Models.Contact
 
 @{
-    ViewBag.Title = Model.FirstName + " " + Model.LastName;
+    ViewBag.Title = "Contact Detail View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Contact Detail</h2>
 
 <p>
-    @Html.ActionLink("Add New Contact", "AddContactGet")
+    @Html.ActionLink("Update Contact", "UpdateContactGet", new { id = Model.Id })
 </p>
 <table class="table">
     <tr>
         <th>
-           @Html.Display(Model.FirstName + Model.LastName)
+            @Model.FirstName @Model.LastName
         </th>
     </tr>
 </table>
 <ul>
     <li>
-        Contact Type: @Model.ContactType
+        Contact Type: @Model.ContactTypeId
     </li>
     @if (Model.DOB.HasValue)
             {
-
                 var age = DateTime.UtcNow.Year - Model.DOB.Value.Year;
-
 
         <li>Age: @Html.DisplayTextFor(model => age)</li>
     }
