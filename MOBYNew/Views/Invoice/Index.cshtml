@@ -38,7 +38,7 @@
                 <label class="control-label">Item</label>
             </td>
             <td>
-                <label class="control-label">Unit</label>
+                <label class="control-label">Category</label>
             </td>
             <td>
                 <label class="control-label">Quantity</label>
@@ -46,9 +46,9 @@
             <td>
                 <label class="control-label">Price</label>
             </td>
-            <td>
+            @*<td>
                 <label class="control-label">Category</label>
-            </td>
+            </td>*@
             <td>
                 <label class="control-label">Total</label>
             </td>
@@ -64,7 +64,7 @@
             </td>
 
             <td>
-                @Html.EditorFor(model => model.NewItem.Category)
+                @Html.EditorFor(model => model.NewItem.Category.CategoryName)
             </td>
 
             <td>
@@ -75,15 +75,14 @@
                 @Html.EditorFor(model => model.NewItem.Price)
             </td>
 
-            <td>
+            @*<td>
                 @Html.EditorFor(model => model.NewItem.Category.CategoryName)<br />
-                @*@Html.EditorFor(model => model.NewItem.Category.IsTaxable)*@
-            </td>
+                @Html.EditorFor(model => model.NewItem.Category.IsTaxable)
+            </td>*@
 
             <td>
                 @Html.EditorFor(model => model.NewItem.Price)
             </td>
-
 
         </tr>
     </thead>
@@ -106,9 +105,9 @@
                 <td>
                     @Html.TextBoxFor(m => m.Items[i].Price)
                 </td>
-                <td>
+                @*<td>
                     @Html.TextBoxFor(m => m.Items[i].Category.CategoryName)
-                </td>
+                </td>*@
                 <td>
                     @Model.Items[i].Price
                 </td>
