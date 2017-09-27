@@ -3,9 +3,6 @@ using System.Linq;
 using System.Web.Mvc;
 using MOBYNew.Models;
 using MOBYNew.ViewModels;
-using System.ComponentModel.DataAnnotations;
-using AutoMapper;
-using System.Collections.Generic;
 
 namespace MOBYNew.Controllers
 {

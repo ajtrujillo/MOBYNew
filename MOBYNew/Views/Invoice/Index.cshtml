@@ -9,137 +9,111 @@
     <div class="jumbotron">
         @*<div id="main" class="panel panel-primary">*@
 
-            <div class="panel-heading"> <h1 class="panel-title">Invoice Builder</h1></div>
-            <div class="panel-body">
+        <div class="panel-heading"> <h1 class="panel-title">Invoice Builder</h1></div>
+        <div class="panel-body">
 
-                <fieldset>
-                    @Html.LabelFor(model => model.Name)
-                    @Html.EditorFor(model => model.Name)
+            <fieldset>
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name)
 
-                    @Html.LabelFor(model => model.Contact.FirstName)
-                    @Html.EditorFor(model => model.Contact.FirstName)
+                @Html.LabelFor(model => model.Contact.FirstName)
+                @Html.EditorFor(model => model.Contact.FirstName)
 
-                    @Html.LabelFor(model => model.EntryDate)
-                    @Html.EditorFor(model => model.EntryDate)
-                </fieldset>
+                @Html.LabelFor(model => model.EntryDate)
+                @Html.EditorFor(model => model.EntryDate)
+            </fieldset>
 
-            </div>
         </div>
+    </div>
     @*</div>*@
 </form>
-
-<table class="table table-bordered table-condensed table-hover table-responsive table-striped">
-    <thead>
-        <tr>
-            <td>
-                <label class="control-label">#</label>
-            </td>
-            <td>
-                <label class="control-label">Item</label>
-            </td>
-            <td>
-                <label class="control-label">Category</label>
-            </td>
-            <td>
-                <label class="control-label">Quantity</label>
-            </td>
-            <td>
-                <label class="control-label">Price</label>
-            </td>
-            @*<td>
-                <label class="control-label">Category</label>
-            </td>*@
-            <td>
-                <label class="control-label">Total</label>
-            </td>
-        </tr>
-        <tr>
-
-            <td>
-                <button class="btn-sm btn-danger" style="border-radius: 50%; background-color: red;" name="Submit" id="Submit" type="submit">+</button>
-            </td>
-
-            <td>
-                @Html.EditorFor(model => model.NewItem.ItemName)
-            </td>
-
-            <td>
-                @Html.EditorFor(model => model.NewItem.Category.CategoryName)
-            </td>
-
-            <td>
-                @Html.EditorFor(model => model.NewItem.QtyInStock)
-            </td>
-
-            <td>
-                @Html.EditorFor(model => model.NewItem.Price)
-            </td>
-
-            @*<td>
-                @Html.EditorFor(model => model.NewItem.Category.CategoryName)<br />
-                @Html.EditorFor(model => model.NewItem.Category.IsTaxable)
-            </td>*@
-
-            <td>
-                @Html.EditorFor(model => model.NewItem.Price)
-            </td>
-
-        </tr>
-    </thead>
-    <tbody>
-        @for (int i = 0; i < Model.Items.Count(); i++)
-        {
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Invoice", FormMethod.Get))
+    {
+    <p>
+        Category: @Html.DropDownList("itemCategory", "All")
+        Title: @Html.TextBox("searchString")
+        <input type="submit" value="Filter" />
+    </p>
+    }
+    </p>
+    @*<table class="table">*@
+    <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+        <thead>
             <tr>
                 <td>
-                    @(i + 1)
+                    <label class="control-label">#</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(m => m.Items[i].ItemName)
+                    <label class="control-label">Item</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(m => m.Items[i].Category)
+                    <label class="control-label">Category</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(m => m.Items[i].QtyInStock)
+                    <label class="control-label">Quantity</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(m => m.Items[i].Price)
+                    <label class="control-label">Price</label>
                 </td>
-                @*<td>
-                    @Html.TextBoxFor(m => m.Items[i].Category.CategoryName)
-                </td>*@
                 <td>
-                    @Model.Items[i].Price
+                    <label class="control-label">Total</label>
                 </td>
             </tr>
-        }
-        @*@foreach (var item in Model.Items)
-            {
-                    <tr>
-                        <td>
-                            @Model.Items.ToList().IndexOf(item) + 1
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.Name)
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.UnitType)
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.Quantity)
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.UnitPrice)
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.Category.Name)
-                        </td>
-                        <td>
-                            @Html.LabelFor(titem => item.ItemPrice)
-                        </td>
-                    </tr>
-                }*@
-    </tbody>
 
-    <tfoot></tfoot>
-</table>
+            <tr>
+
+                <td>
+                    <button class="btn-sm btn-danger" style="border-radius: 50%; background-color: red;" name="Submit" id="Submit" type="submit">+</button>
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.NewItem.ItemName)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.NewItem.Category.CategoryName)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.NewItem.QtyInStock)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.NewItem.Price)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NewItem.Price)
+                </td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Items.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @(i + 1)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Items[i].ItemName)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Items[i].Category)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Items[i].QtyInStock)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Items[i].Price)
+                    </td>
+                    <td>
+                        @Model.Items[i].Price
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot></tfoot>
+    </table>
