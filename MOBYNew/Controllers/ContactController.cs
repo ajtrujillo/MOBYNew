@@ -1,122 +1,128 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using MOBYNew.Models;
-using MOBYNew.ViewModels;
 
 namespace MOBYNew.Controllers
 {
     public class ContactController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        private ApplicationDbContext _context;
-
-        public ContactController()
+        // GET: Contact
+        public ActionResult Index()
         {
-            _context = new ApplicationDbContext();
+            var contacts = db.Contacts.Include(c => c.ContactType);
+            return View(contacts.ToList());
+        }
+
+        // GET: Contact/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+
+        // GET: Contact/Create
+        public ActionResult Create()
+        {
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType");
+            return View();
+        }
+
+        // POST: Contact/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,ContactTypeId,JoinDate,DOB,IsSubscribedToNewsletter")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            return View(contact);
+        }
+
+        // GET: Contact/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            return View(contact);
+        }
+
+        // POST: Contact/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,ContactTypeId,JoinDate,DOB,IsSubscribedToNewsletter")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(contact).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            return View(contact);
+        }
+
+        // GET: Contact/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+
+        // POST: Contact/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Contact contact = db.Contacts.Find(id);
+            db.Contacts.Remove(contact);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            _context.Dispose();
-        }
-
-        //GET: Contact List View
-        public ViewResult Index()
-        {
-            var contacts = _context.Contacts.Include(c => c.ContactType).ToList();
-            return View(contacts);
-        }
-
-        //GET: Contact Detail view
-        public ActionResult ContactDetail(int id)
-        {
-            var contactDetail = _context.Contacts.SingleOrDefault(c => c.Id == id);
+            if (disposing)
             {
-                if (contactDetail == null)
-                    return HttpNotFound();
-
-                return View(contactDetail);
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
-
-        //GET: Add Contact Form
-        [HttpGet]
-        public ActionResult AddContactGet()
-        {
-            var contactTypes = _context.ContactTypes.ToList();
-
-            var viewmodel = new AddContactViewModel
-            {
-                ContactTypes = contactTypes
-            };
-            return View("AddContact", viewmodel);
-        }
-
-        //GET: Update Contact Form
-        [HttpGet]
-        public ActionResult UpdateContactGet(int id)
-        {
-            var contactTypes = _context.ContactTypes.ToList();
-
-            var contact = _context.Contacts.SingleOrDefault(c => c.Id == id);
-
-            if (contact == null)
-                return HttpNotFound();
-
-            var viewmodel = new UpdateContactViewModel
-            {
-                FirstName = contact.FirstName,
-                LastName = contact.LastName,
-                DOB = contact.DOB,
-                IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
-                ContactTypes = contactTypes
-            };
-
-            return View("UpdateContact", viewmodel);
-        }
-
-
-        [HttpPost]
-        public ActionResult ContactPost(int? id)
-        {
-            var contactTypes = _context.ContactTypes.ToList();
-
-            var contact = _context.Contacts.Single(x => x.Id == id);
-
-            if (ModelState.IsValid)
-            {
-                var viewmodel = new UpdateContactViewModel
-                {
-                    FirstName = contact.FirstName,
-                    LastName = contact.LastName,
-                    DOB = contact.DOB,
-                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
-                    ContactTypes = contactTypes
-                };
-
-                return View("UpdateContact", viewmodel);
-            }
-
-            if (id != null)
-                _context.Contacts.Add(contact);
-
-            else
-            {
-                _context.Contacts.Add(new Contact
-                {
-                    FirstName = contact.FirstName,
-                    LastName = contact.LastName,
-                    DOB = contact.DOB,
-                    IsSubscribedToNewsletter = contact.IsSubscribedToNewsletter,
-                    //TODO: Update the contact's Join Date
-                    //JoinDate = DateTime.Now()
-                });
-            }
-
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Contact");
-        }
-
     }
 }

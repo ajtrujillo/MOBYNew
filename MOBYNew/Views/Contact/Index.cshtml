@@ -1,46 +1,64 @@
 ﻿@model IEnumerable<MOBYNew.Models.Contact>
 
 @{
-    ViewBag.Title= "Contacts";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Contacts</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Add Contact", "AddContactGet")
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactType.contactType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSubscribedToNewsletter)
+        </th>
+        <th></th>
+    </tr>
 
-@if (Model.Any()==false)
-{
-    <p>No contacts yet.</p>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactType.contactType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSubscribedToNewsletter)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
 }
 
-else
-{
-    
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Contact Name</th>
-                <th>Contact Type</th>
-                <th>Contact Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var contact in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(contact.FirstName + " " + contact.LastName, "ContactDetail", "Contact", new { id = contact.Id }, null)</td>
-                    <td>@contact.ContactType.contactType</td>
-                    <td>@contact.ContactType.ContactStatus</td>
-                    <td>
-                        @*@HtmlActionLink(string linkText, string actionName, Object routeValues)*@
-                        @Html.ActionLink("Edit", "UpdateContactGet", new { id = contact.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+</table>
