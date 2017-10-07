@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MOBYNew.Models
 {
@@ -13,6 +9,7 @@ namespace MOBYNew.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Genre")]
         public string genreName { get; set; }
 
         public string genreCode { get; set; }

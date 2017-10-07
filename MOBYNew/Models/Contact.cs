@@ -23,12 +23,12 @@ namespace MOBYNew.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Join Date")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? JoinDate { get; set; } = DateTime.Now;
 
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }

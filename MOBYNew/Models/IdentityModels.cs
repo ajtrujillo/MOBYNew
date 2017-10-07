@@ -37,5 +37,7 @@ namespace MOBYNew.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MOBYNew.Models.Transaction> Transactions { get; set; }
     }
 }

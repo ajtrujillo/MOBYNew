@@ -11,7 +11,7 @@ namespace MOBYNew.Models
 		[Key]
 		public int Id { get; set; }
 
-		[Required, StringLength(255), Display(Name ="Name")]
+		[Required, StringLength(255), Display(Name ="Category")]
 		public string CategoryName { get; set; }
 
         [Display(Name ="Category Description")]

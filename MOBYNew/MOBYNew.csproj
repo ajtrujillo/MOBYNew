@@ -18,9 +18,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -428,13 +429,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddToCart.aspx.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddToCart.aspx.designer.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -444,20 +438,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ItemList.aspx.cs">
-      <DependentUpon>ItemList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ItemList.aspx.designer.cs">
-      <DependentUpon>ItemList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Logic\ShoppingCartActions.cs" />
     <Compile Include="Migrations\201708071847196_SecondInitialMigration.cs" />
     <Compile Include="Migrations\201708071847196_SecondInitialMigration.Designer.cs">
       <DependentUpon>201708071847196_SecondInitialMigration.cs</DependentUpon>
@@ -626,6 +612,10 @@
     <Compile Include="Migrations\201709280242130_ItemModelChanges.Designer.cs">
       <DependentUpon>201709280242130_ItemModelChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709280333252_DBChanges.cs" />
+    <Compile Include="Migrations\201709280333252_DBChanges.Designer.cs">
+      <DependentUpon>201709280333252_DBChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -638,15 +628,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingCart.aspx.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ShoppingCart.aspx.designer.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\UpdateContactViewModel.cs" />
     <Compile Include="ViewModels\AddContactViewModel.cs" />
@@ -655,7 +638,6 @@
     <Compile Include="ViewModels\RandomItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddToCart.aspx" />
     <Content Include="Content\bootstrap-readable.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -679,7 +661,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\mobylogo.png" />
-    <Content Include="ItemList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -697,7 +678,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="ShoppingCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -733,7 +713,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBarPartial.cshtml" />
-    <Content Include="Views\Invoice\Index.cshtml" />
     <Content Include="Views\Item\Create.cshtml" />
     <Content Include="Views\Item\Delete.cshtml" />
     <Content Include="Views\Item\Details.cshtml" />
@@ -744,6 +723,11 @@
     <Content Include="Views\Contact\Details.cshtml" />
     <Content Include="Views\Contact\Edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -884,6 +868,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709280242130_ItemModelChanges.resx">
       <DependentUpon>201709280242130_ItemModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709280333252_DBChanges.resx">
+      <DependentUpon>201709280333252_DBChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
