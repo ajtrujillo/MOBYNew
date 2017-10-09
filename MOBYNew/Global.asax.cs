@@ -1,9 +1,12 @@
-﻿using System.Web.Mvc;
-using System.Data.Entity;
-using System.Web.Optimization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
-using MOBYNew.Models;
 using MOBYNew.App_Start;
+using System.Web.Optimization;
 
 namespace MOBYNew
 {
@@ -11,6 +14,7 @@ namespace MOBYNew
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
