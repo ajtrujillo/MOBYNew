@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MOBYNew.Models;
+﻿using MOBYNew.Models;
 using MOBYNew.ViewModels;
 using AutoMapper;
+using MOBYNew.DTOs;
 
 namespace MOBYNew.App_Start
 {
@@ -16,6 +13,8 @@ namespace MOBYNew.App_Start
             {
                 cfg.CreateMap<Contact, ContactFormBaseViewModel>()
                 .ForAllMembers(opt => opt.Condition(r => r != null));
+                cfg.CreateMap<Contact, ContactDto>();
+                cfg.CreateMap<ContactDto, Contact>();
             });
         }
     }
