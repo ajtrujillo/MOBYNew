@@ -7,7 +7,7 @@ using MOBYNew.Models;
 using MOBYNew.DTOs;
 using AutoMapper;
 
-namespace MOBYNew.Controllers.API
+namespace MOBYNew.Controllers.Api
 {
     public class ContactsController : ApiController
     {
@@ -71,7 +71,7 @@ namespace MOBYNew.Controllers.API
 
         // DELETE api/contacts/5
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public void DeleteContact(int id)
         {
             var contactInDb = _context.Contacts.SingleOrDefault(c => c.Id == id);
 

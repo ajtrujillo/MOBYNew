@@ -1,5 +1,9 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MOBYNew.App_Start
 {
@@ -9,7 +13,7 @@ namespace MOBYNew.App_Start
         {
             var settings = config.Formatters.JsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            settings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            settings.Formatting = Formatting.Indented;
 
             config.MapHttpAttributeRoutes();
 

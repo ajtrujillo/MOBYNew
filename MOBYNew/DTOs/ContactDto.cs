@@ -17,13 +17,13 @@ namespace MOBYNew.DTOs
 
         public int ContactTypeId { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
-        public DateTime? JoinDate { get; set; } = DateTime.Now;
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        //public DateTime? JoinDate { get; set; } = DateTime.Now;
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
-        public DateTime? DOB { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        //public DateTime? DOB { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
     }
