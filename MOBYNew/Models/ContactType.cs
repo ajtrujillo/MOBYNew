@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace MOBYNew.Models
 {
@@ -12,7 +9,9 @@ namespace MOBYNew.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string contactType { get; set; }
+
+        [Display (Name ="Contact Type")]
+        public string ContactTypeName { get; set; }
 
         public int? DiscountId { get; set; }
         [ForeignKey("DiscountId")]

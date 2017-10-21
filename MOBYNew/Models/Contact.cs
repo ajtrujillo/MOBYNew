@@ -17,8 +17,18 @@ namespace MOBYNew.Models
         [Required]
         public string LastName { get; set; }
 
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+        [Display (Name = "Contact Type")]
         [ForeignKey("ContactTypeId")]
-        public ContactType ContactType { get; set; }
+        public ContactType ContactTypeName { get; set; }
         public int ContactTypeId { get; set; }
 
         [DataType(DataType.Date)]

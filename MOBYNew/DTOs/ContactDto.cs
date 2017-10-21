@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using MOBYNew.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MOBYNew.DTOs
 {
@@ -10,12 +6,15 @@ namespace MOBYNew.DTOs
     {
         public int Id { get; set; }
 
+        public string FullName { get; set; }
+
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
 
         public int ContactTypeId { get; set; }
+
+        public ContactTypeDto ContactTypeName { get; set; }
 
         //[DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]

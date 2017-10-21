@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Contacts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,86 +13,111 @@
 <table id="contacts" class="table table-bordered table-hover">
     <thead>
         <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.ContactType.contactType)
+                @Html.DisplayNameFor(model => model.FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.ContactTypeName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JoinDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DOB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsSubscribedToNewsletter)
-            </th>
-            <th>
-                <text>MVC Edit</text>
-            </th>
-            <th>
+                @*@Html.DisplayNameFor(model => model.JoinDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DOB)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsSubscribedToNewsletter)
+                    </th>
+                    <th>
+                        <text>MVC Edit</text>
+                    </th>
+                    <th>*@
                 <text>API Edit</text>
             </th>
         </tr>
     </thead>
-    <tbody>
+    @*<tbody>
 
         @foreach (var contact in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.ContactType.contactType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.JoinDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.DOB)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => contact.IsSubscribedToNewsletter)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
-                </td>
-                <td>
-                    <button data-contact-id="@contact.Id" class="btn-link js-delete">ApiDelete</button>
-                </td>
-            </tr>
-        }
-    </tbody>
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.ContactType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.JoinDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.DOB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contact.IsSubscribedToNewsletter)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
+                    </td>
+                    <td>
+                        <button data-contact-id="@contact.Id" class="btn-link js-delete">ApiDelete</button>
+                    </td>
+                </tr>
+            }
+    </tbody>*@
 
 </table>
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $("#contacts .js-delete").on("click", function () {
+            $("#contacts").DataTable({
+                ajax: {
+                    url: "/api/contacts",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        //Parameter *MUST* be camel case!! Note!!
+                        data: "fullName",
+                        render: function (data, type, contact) {
+                            return "<a href='/contacts/edit/" + contact.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "fullName"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-contact-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#contacts").on("click", ".js-delete", function () {
 
                 var button = $(this);
 
-                bootbox.confirm("Are you sure you want to delete this contact?", function(result){
-                    if (result){
+                bootbox.confirm("Are you sure you want to delete this contact?", function (result) {
+                    if (result) {
                         $.ajax({
                             url: "/api/contacts/" + button.attr("data-contact-id"),
                             method: "DELETE",
-                            success: function (){
+                            success: function () {
                                 button.parents("tr").remove();
                             }
                         });
-                    }                 
+                    }
                     //if (confirm("Are you sure you want to delete this Contact?")) {
                     //    $.ajax({
                     //        url: "/api/contacts/" + button.attr("data-contact-id"),
@@ -105,5 +130,5 @@
                 })
             });
         })
-     </script>
+    </script>
 }4.3.0

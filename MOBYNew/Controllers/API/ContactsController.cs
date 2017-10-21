@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System;
+using System.Data.Entity;
 using System.Web.Http;
 using MOBYNew.Models;
 using MOBYNew.DTOs;
@@ -19,9 +20,16 @@ namespace MOBYNew.Controllers.Api
         }
 
         // GET api/contacts
-        public IEnumerable<ContactDto> GetContacts()
+        public IHttpActionResult GetContacts()
         {
-            return _context.Contacts.ToList().Select(Mapper.Map<Contact, ContactDto>);
+            //return _context.Contacts.ToList().Select(Mapper.Map<Contact, ContactDto>);
+            var contactDtos = _context.Contacts
+                .Include(c => c.ContactTypeName)
+                .ToList()
+                .Select(Mapper.Map<Contact, ContactDto>);
+
+            return Ok(contactDtos);
+
         }
 
         // GET api/contacts/5

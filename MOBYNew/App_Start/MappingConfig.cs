@@ -15,6 +15,7 @@ namespace MOBYNew.App_Start
                 .ForAllMembers(opt => opt.Condition(r => r != null));
                 cfg.CreateMap<Contact, ContactDto>();
                 cfg.CreateMap<ContactDto, Contact>();
+                cfg.CreateMap<ContactType, ContactTypeDto>();
             });
         }
     }

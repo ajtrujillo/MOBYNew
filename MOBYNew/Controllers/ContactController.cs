@@ -13,8 +13,11 @@ namespace MOBYNew.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            var contacts = db.Contacts.Include(c => c.ContactType);
-            return View(contacts.ToList());
+            //Testing to display results from API
+            //var contacts = db.Contacts.Include(c => c.ContactType);
+            //return View(contacts.ToList());
+
+            return View();
         }
 
         // GET: Contact/Details/5
@@ -35,7 +38,7 @@ namespace MOBYNew.Controllers
         // GET: Contact/Create
         public ActionResult Create()
         {
-            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType");
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "ContactTypeName");
             return View();
         }
 
@@ -53,7 +56,7 @@ namespace MOBYNew.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "ContactTypeName", contact.ContactTypeId);
             return View(contact);
         }
 
@@ -69,7 +72,7 @@ namespace MOBYNew.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "ContactTypeName", contact.ContactTypeId);
             return View(contact);
         }
 
@@ -86,7 +89,7 @@ namespace MOBYNew.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "contactType", contact.ContactTypeId);
+            ViewBag.ContactTypeId = new SelectList(db.ContactTypes, "Id", "ContactTypeName", contact.ContactTypeId);
             return View(contact);
         }
 
