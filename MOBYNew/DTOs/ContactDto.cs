@@ -14,7 +14,7 @@ namespace MOBYNew.DTOs
 
         public int ContactTypeId { get; set; }
 
-        public ContactTypeDto ContactTypeName { get; set; }
+        public ContactTypeDto ContactType { get; set; }
 
         //[DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]

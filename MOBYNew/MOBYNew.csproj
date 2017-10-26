@@ -643,6 +643,14 @@
     <Compile Include="Migrations\201710212206441_AddedFullName.Designer.cs">
       <DependentUpon>201710212206441_AddedFullName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710262304365_ReSeedContactTypesDB.cs" />
+    <Compile Include="Migrations\201710262304365_ReSeedContactTypesDB.Designer.cs">
+      <DependentUpon>201710262304365_ReSeedContactTypesDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710262311033_ReSeedContactTypesDB2.cs" />
+    <Compile Include="Migrations\201710262311033_ReSeedContactTypesDB2.Designer.cs">
+      <DependentUpon>201710262311033_ReSeedContactTypesDB2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -1082,6 +1090,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710212206441_AddedFullName.resx">
       <DependentUpon>201710212206441_AddedFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710262304365_ReSeedContactTypesDB.resx">
+      <DependentUpon>201710262304365_ReSeedContactTypesDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710262311033_ReSeedContactTypesDB2.resx">
+      <DependentUpon>201710262311033_ReSeedContactTypesDB2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

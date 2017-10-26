@@ -11,11 +11,20 @@ namespace MOBYNew.App_Start
         {
             Mapper.Initialize(cfg =>
             {
+                //Domain to Dto
+
                 cfg.CreateMap<Contact, ContactFormBaseViewModel>()
                 .ForAllMembers(opt => opt.Condition(r => r != null));
                 cfg.CreateMap<Contact, ContactDto>();
-                cfg.CreateMap<ContactDto, Contact>();
                 cfg.CreateMap<ContactType, ContactTypeDto>();
+
+                //Dto's to Domain
+
+                cfg.CreateMap<ContactDto, Contact>()
+                    .ForMember(c => c.Id, opt => opt.Ignore());
+                cfg.CreateMap<ContactTypeDto, ContactType>()
+                    .ForMember(c => c.Id, opt => opt.Ignore());
+                ;
             });
         }
     }
