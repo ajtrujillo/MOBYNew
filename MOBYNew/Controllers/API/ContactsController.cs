@@ -40,7 +40,7 @@ namespace MOBYNew.Controllers.Api
             if (contact == null)
                 return NotFound();
 
-            return Ok (Mapper.Map<Contact, ContactDto>(contact));
+            return Ok(Mapper.Map<Contact, ContactDto>(contact));
         }
 
         // POST api/contacts
