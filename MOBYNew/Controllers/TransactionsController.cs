@@ -36,7 +36,7 @@ namespace MOBYNew.Controllers
 
             if (!string.IsNullOrEmpty(itemCategory))
             {
-                items = items.Where(x => x.Category.ToString() == itemCategory);
+                items = items.Where(x => x.ItemCategory.ToString() == itemCategory);
             }
 
             return View(items);

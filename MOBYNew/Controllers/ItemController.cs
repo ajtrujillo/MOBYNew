@@ -13,7 +13,7 @@ namespace MOBYNew.Controllers
         // GET: ItemController
         public ActionResult Index()
         {
-            var items = db.Items.Include(i => i.Category).Include(i => i.Genre);
+            var items = db.Items.Include(i => i.ItemCategory).Include(i => i.ItemGenre);
             return View(items.ToList());
         }
 
@@ -35,8 +35,8 @@ namespace MOBYNew.Controllers
         // GET: ItemController/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "genreName");
+            ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName");
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName");
             return View();
         }
 
@@ -54,8 +54,8 @@ namespace MOBYNew.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.CategoryId);
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "genreName", item.GenreId);
+            ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.ItemCategoryId);
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName", item.ItemGenreId);
             return View(item);
         }
 
@@ -71,8 +71,8 @@ namespace MOBYNew.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.CategoryId);
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "genreName", item.GenreId);
+            ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.ItemCategoryId);
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName", item.ItemGenreId);
             return View(item);
         }
 
@@ -89,8 +89,8 @@ namespace MOBYNew.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.CategoryId);
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "genreName", item.GenreId);
+            ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.ItemCategoryId);
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName", item.ItemGenreId);
             return View(item);
         }
 

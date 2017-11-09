@@ -17,10 +17,10 @@
                 @Html.DisplayNameFor(model => model.ItemName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category.CategoryName)
+                @Html.DisplayNameFor(model => model.ItemCategory.CategoryName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genre.GenreName)
+                @Html.DisplayNameFor(model => model.ItemGenre.GenreName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
@@ -48,10 +48,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    @Html.DisplayFor(modelItem => item.ItemCategory.CategoryName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Genre.genreName)
+                    @Html.DisplayFor(modelItem => item.ItemGenre.GenreName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ItemName)
@@ -93,6 +93,8 @@
                     dataSrc: ""
                 },
                 columns: [
+                    //Pretty sure that 'data' draws directly from Item.cs Model attributes.
+                    //Remember! Camel case!!
                     {
                         data: "itemName",
                         render: function (data, type, item) {
@@ -100,10 +102,10 @@
                         }
                     },
                     {
-                        data: "itemCategoryDto.categoryName"
+                        data: "itemCategory.categoryName"
                     },
                     {
-                        data: "itemGenreDto.genreName"
+                        data: "itemGenre.genreName"
                     },
                     {
                         data: "price"

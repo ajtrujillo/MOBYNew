@@ -12,8 +12,8 @@ namespace MOBYNew.DTOs
 
         public double QtyInStock { get; set; }
 
-        public ItemCategoryDto ItemCategoryDto { get; set; }
+        public ItemCategoryDto ItemCategory { get; set; }
 
-        public ItemGenreDto ItemGenreDto { get; set; }
+        public ItemGenreDto ItemGenre { get; set; }
     }
 }

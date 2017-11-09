@@ -675,6 +675,10 @@
     <Compile Include="Migrations\201711091830094_UpdatedItemDto.Designer.cs">
       <DependentUpon>201711091830094_UpdatedItemDto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711091843382_RenamedGenreandCategoryModels.cs" />
+    <Compile Include="Migrations\201711091843382_RenamedGenreandCategoryModels.Designer.cs">
+      <DependentUpon>201711091843382_RenamedGenreandCategoryModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -1136,6 +1140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711091830094_UpdatedItemDto.resx">
       <DependentUpon>201711091830094_UpdatedItemDto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711091843382_RenamedGenreandCategoryModels.resx">
+      <DependentUpon>201711091843382_RenamedGenreandCategoryModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

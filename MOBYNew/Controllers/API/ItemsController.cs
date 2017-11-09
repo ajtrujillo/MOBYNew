@@ -23,8 +23,8 @@ namespace MOBYNew.Controllers.Api
         {
             //return _context.Items.ToList().Select(Mapper.Map<Item, ItemDto>);
             var ItemDtos = _context.Items
-                .Include(c => c.Category)
-                .Include(c => c.Genre)
+                .Include(c => c.ItemCategory)
+                .Include(c => c.ItemGenre)
                 .ToList()
                 .Select(Mapper.Map<Item, ItemDto>);
 
