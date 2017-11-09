@@ -87,40 +87,57 @@
 {
     <script>
         $(document).ready(function () {
-            var table = $("#items").DataTable({
-                ajax: {
-                    url: "/api/items",
-                    dataSrc: ""
-                },
-                columns: [
-                    //Pretty sure that 'data' draws directly from Item.cs Model attributes.
-                    //Remember! Camel case!!
+            var table = $("#items").DataTable
+                ({
+                    ajax: {
+                        url: "/api/items",
+                        dataSrc: ""
+                    },
+                    columns: [
+                        //Pretty sure that 'data' draws directly from Item.cs Model attributes.
+                        //Remember! Camel case!!
+                        {
+                            data: "itemName",
+                            render: function (data, type, item) {
+                                return "<a href='/items/edit/" + item.id + "'>" + data + "</a>";
+                            }
+                        },
+                        {
+                            data: "itemCategory.categoryName"
+                        },
+                        {
+                            data: "itemGenre.genreName"
+                        },
+                        {
+                            data: "price"
+                        },
+                        {
+                            data: "qtyInStock"
+                        },
                     {
-                        data: "itemName",
-                        render: function (data, type, item) {
-                            return "<a href='/items/edit/" + item.id + "'>" + data + "</a>";
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-contact-id=" + data + ">Delete</button>";
                         }
-                    },
-                    {
-                        data: "itemCategory.categoryName"
-                    },
-                    {
-                        data: "itemGenre.genreName"
-                    },
-                    {
-                        data: "price"
-                    },
-                    {
-                        data: "qtyInStock"
-                    },
-                {
-                    data: "id",
-                    render: function (data) {
-                        return "<button class='btn-link js-delete' data-contact-id=" + data + ">Delete</button>";
+                    }]
+                })
+
+            $("#items").on("click", ".js-delete", function () {
+
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this item?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/items/" + button.attr("data-item-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
                     }
-                }]
-            }
-            )
+                })
+            });
         })
     </script>}
 

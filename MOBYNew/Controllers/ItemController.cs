@@ -14,7 +14,11 @@ namespace MOBYNew.Controllers
         public ActionResult Index()
         {
             var items = db.Items.Include(i => i.ItemCategory).Include(i => i.ItemGenre);
-            return View(items.ToList());
+
+            if (User.IsInRole(RoleName.CRUDOps))
+                return View(items.ToList());
+            else
+                return View("ReadOnlyList");
         }
 
         // GET: ItemController/Details/5
@@ -33,10 +37,11 @@ namespace MOBYNew.Controllers
         }
 
         // GET: ItemController/Create
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Create()
         {
             ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName");
-            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName");
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "GenreName");
             return View();
         }
 
@@ -45,6 +50,7 @@ namespace MOBYNew.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Create([Bind(Include = "Id,ItemName,ReleaseDate,GenreId,CategoryId,ItemDescription,ImagePath,Price,ISBN13EAN,QtyInStock")] Item item)
         {
             if (ModelState.IsValid)
@@ -55,11 +61,12 @@ namespace MOBYNew.Controllers
             }
 
             ViewBag.ItemCategoryId = new SelectList(db.Categories, "Id", "CategoryName", item.ItemCategoryId);
-            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "genreName", item.ItemGenreId);
+            ViewBag.ItemGenreId = new SelectList(db.Genres, "Id", "GenreName", item.ItemGenreId);
             return View(item);
         }
 
         // GET: ItemController/Edit/5
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,6 +88,7 @@ namespace MOBYNew.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Edit([Bind(Include = "Id,ItemName,ReleaseDate,GenreId,CategoryId,ItemDescription,ImagePath,Price,ISBN13EAN,QtyInStock")] Item item)
         {
             if (ModelState.IsValid)
@@ -95,6 +103,7 @@ namespace MOBYNew.Controllers
         }
 
         // GET: ItemController/Delete/5
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +121,7 @@ namespace MOBYNew.Controllers
         // POST: ItemController/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult DeleteConfirmed(int id)
         {
             Item item = db.Items.Find(id);
