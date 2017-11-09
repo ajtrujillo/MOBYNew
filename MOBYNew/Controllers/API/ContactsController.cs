@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System;
 using System.Data.Entity;
@@ -22,7 +21,6 @@ namespace MOBYNew.Controllers.Api
         // GET api/contacts
         public IHttpActionResult GetContacts()
         {
-            //return _context.Contacts.ToList().Select(Mapper.Map<Contact, ContactDto>);
             var contactDtos = _context.Contacts
                 .Include(c => c.ContactTypeName)
                 .ToList()

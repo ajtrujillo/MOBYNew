@@ -17,6 +17,9 @@ namespace MOBYNew.App_Start
                 .ForAllMembers(opt => opt.Condition(r => r != null));
                 cfg.CreateMap<Contact, ContactDto>();
                 cfg.CreateMap<ContactType, ContactTypeDto>();
+                cfg.CreateMap<Item, ItemDto>();
+                cfg.CreateMap<Category, CategoryDto>();
+                cfg.CreateMap<Genre, GenreDto>();
 
                 //Dto's to Domain
 
@@ -24,7 +27,12 @@ namespace MOBYNew.App_Start
                     .ForMember(c => c.Id, opt => opt.Ignore());
                 cfg.CreateMap<ContactTypeDto, ContactType>()
                     .ForMember(c => c.Id, opt => opt.Ignore());
-                ;
+                cfg.CreateMap<ItemDto, Item>()
+                    .ForMember(c => c.Id, opt => opt.Ignore());
+                cfg.CreateMap<CategoryDto, Category>()
+                    .ForMember(c => c.Id, opt => opt.Ignore());
+                cfg.CreateMap<GenreDto, Genre>()
+                    .ForMember(c => c.Id, opt => opt.Ignore());
             });
         }
     }

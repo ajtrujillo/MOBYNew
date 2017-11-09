@@ -448,14 +448,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ItemsController.cs" />
     <Compile Include="Controllers\Api\ContactsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
-    <Compile Include="DTOs\ContactDto.cs" />
-    <Compile Include="DTOs\ContactTypeDto.cs" />
+    <Compile Include="Dtos\ItemGenreDto.cs" />
+    <Compile Include="Dtos\ItemDto.cs" />
+    <Compile Include="Dtos\ContactDto.cs" />
+    <Compile Include="Dtos\ItemCategoryDto.cs" />
+    <Compile Include="Dtos\ContactTypeDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -658,6 +662,10 @@
     <Compile Include="Migrations\201710302356213_SeedUserRoles.cs" />
     <Compile Include="Migrations\201710302356213_SeedUserRoles.Designer.cs">
       <DependentUpon>201710302356213_SeedUserRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711042032108_AddingItemAPI.cs" />
+    <Compile Include="Migrations\201711042032108_AddingItemAPI.Designer.cs">
+      <DependentUpon>201711042032108_AddingItemAPI.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -946,6 +954,7 @@
     <Content Include="Views\Transactions\Details.cshtml" />
     <Content Include="Views\Transactions\Edit.cshtml" />
     <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\Item\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1110,6 +1119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710302356213_SeedUserRoles.resx">
       <DependentUpon>201710302356213_SeedUserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711042032108_AddingItemAPI.resx">
+      <DependentUpon>201711042032108_AddingItemAPI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
