@@ -21,9 +21,9 @@ namespace MOBYNew.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Category>  Categories { get; set; }
+        public DbSet<ItemCategory>  Categories { get; set; }
         public DbSet<Item> Items { get; set; }
-        public DbSet<Genre> Genres { get; set; }
+        public DbSet<ItemGenre> Genres { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
         public DbSet<ContactStatus> ContactStatus { get; set; }
         public DbSet<CartItem> ShoppingCartItems { get; set; }

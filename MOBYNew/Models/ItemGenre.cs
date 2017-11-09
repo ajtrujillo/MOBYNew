@@ -2,7 +2,7 @@
 
 namespace MOBYNew.Models
 {
-    public class Genre
+    public class ItemGenre
     {
         [Key]
         public int Id { get; set; }
@@ -10,8 +10,8 @@ namespace MOBYNew.Models
         [Required]
         [StringLength(255)]
         [Display(Name = "Genre")]
-        public string genreName { get; set; }
+        public string GenreName { get; set; }
 
-        public string genreCode { get; set; }
+        public string GenreCode { get; set; }
     }
 }

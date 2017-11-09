@@ -19,12 +19,12 @@ namespace MOBYNew.Models
 
         [Display(Name = "Genre")]
         [ForeignKey("GenreId")]
-        public Genre Genre { get; set; }
+        public ItemGenre Genre { get; set; }
         public int GenreId { get; set; }
 
         [Display(Name = "Category")]
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
+        public virtual ItemCategory Category { get; set; }
         public int? CategoryId { get; set; }
 
         [Display(Name = "Item Description")]
