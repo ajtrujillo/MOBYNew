@@ -679,6 +679,10 @@
     <Compile Include="Migrations\201711091843382_RenamedGenreandCategoryModels.Designer.cs">
       <DependentUpon>201711091843382_RenamedGenreandCategoryModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111845587_AddedtoItemModel.cs" />
+    <Compile Include="Migrations\201711111845587_AddedtoItemModel.Designer.cs">
+      <DependentUpon>201711111845587_AddedtoItemModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -695,10 +699,8 @@
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\UpdateContactViewModel.cs" />
-    <Compile Include="ViewModels\AddContactViewModel.cs" />
-    <Compile Include="ViewModels\ContactFormBaseViewModel.cs" />
-    <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\ContactFormViewModel.cs" />
+    <Compile Include="ViewModels\ItemFormViewModel.cs" />
     <Compile Include="ViewModels\RandomItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -956,7 +958,7 @@
     <Content Include="Views\Item\Delete.cshtml" />
     <Content Include="Views\Item\Details.cshtml" />
     <Content Include="Views\Item\Edit.cshtml" />
-    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\List.cshtml" />
     <Content Include="Views\Contact\Create.cshtml" />
     <Content Include="Views\Contact\Delete.cshtml" />
     <Content Include="Views\Contact\Details.cshtml" />
@@ -968,6 +970,8 @@
     <Content Include="Views\Transactions\Edit.cshtml" />
     <Content Include="Views\Transactions\Index.cshtml" />
     <Content Include="Views\Item\ReadOnlyList.cshtml" />
+    <Content Include="Views\Item\ItemForm.cshtml" />
+    <Content Include="Views\Contact\ContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1144,6 +1148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711091843382_RenamedGenreandCategoryModels.resx">
       <DependentUpon>201711091843382_RenamedGenreandCategoryModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111845587_AddedtoItemModel.resx">
+      <DependentUpon>201711111845587_AddedtoItemModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

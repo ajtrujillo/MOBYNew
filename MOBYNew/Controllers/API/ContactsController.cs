@@ -60,32 +60,36 @@ namespace MOBYNew.Controllers.Api
 
         // PUT api/contacts/5
         [HttpPut]
-        public void UpdateContact(int id, ContactDto contactDto)
+        public IHttpActionResult UpdateContact(int id, ContactDto contactDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var contactInDb = _context.Contacts.SingleOrDefault(c => c.Id == id);
 
             if (contactInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            Mapper.Map<ContactDto, Contact>(contactDto, contactInDb);
+            Mapper.Map(contactDto, contactInDb);
 
             _context.SaveChanges();
+
+            return Ok();
         }
 
         // DELETE api/contacts/5
         [HttpDelete]
-        public void DeleteContact(int id)
+        public IHttpActionResult DeleteContact(int id)
         {
             var contactInDb = _context.Contacts.SingleOrDefault(c => c.Id == id);
 
             if (contactInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
             _context.Contacts.Remove(contactInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
     }
 }

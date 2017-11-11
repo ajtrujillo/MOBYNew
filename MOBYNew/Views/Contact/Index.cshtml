@@ -41,45 +41,45 @@
     </thead>
     @*<tbody>
 
-        @foreach (var contact in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.ContactType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.JoinDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.DOB)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => contact.IsSubscribedToNewsletter)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
-                    </td>
-                    <td>
-                        <button data-contact-id="@contact.Id" class="btn-link js-delete">ApiDelete</button>
-                    </td>
-                </tr>
-            }
-    </tbody>*@
+            @foreach (var contact in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.ContactType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.JoinDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.DOB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contact.IsSubscribedToNewsletter)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = contact.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = contact.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = contact.Id })
+                        </td>
+                        <td>
+                            <button data-contact-id="@contact.Id" class="btn-link js-delete">ApiDelete</button>
+                        </td>
+                    </tr>
+                }
+        </tbody>*@
 
 </table>
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $("#contacts").DataTable({
+            var table = $("#contacts").DataTable({
                 ajax: {
                     url: "/api/contacts",
                     dataSrc: ""
@@ -89,7 +89,7 @@
                         //Parameter *MUST* be camel case!! Note!!
                         data: "fullName",
                         render: function (data, type, contact) {
-                            return "<a href='/contacts/edit/" + contact.id + "'>" + data + "</a>";
+                            return "<a href='/contact/edit/" + contact.id + "'>" + data + "</a>";
                         }
                     },
                     {
@@ -114,7 +114,7 @@
                             url: "/api/contacts/" + button.attr("data-contact-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
+                                table.row(button.parents("tr")).remove().draw
                             }
                         });
                     }

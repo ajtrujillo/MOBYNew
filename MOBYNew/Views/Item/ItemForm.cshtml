@@ -1,0 +1,44 @@
+﻿@model MOBYNew.ViewModels.ItemFormViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Item"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.ItemName)
+        @Html.TextBoxFor(m => m.ItemName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReleaseDate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ItemCategoryId)
+        @Html.DropDownListFor(m => m.ItemCategoryId, new SelectList(Model.Categories, "Id", "CategoryName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemCategoryId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ItemGenreId)
+        @Html.DropDownListFor(m => m.ItemGenreId, new SelectList(Model.Genres, "Id", "GenreName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ItemGenreId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.QtyInStock)
+        @Html.TextBoxFor(m => m.QtyInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.QtyInStock)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -8,6 +8,7 @@ namespace MOBYNew.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [Display (Name = "Contact Type")]
         public int Id { get; set; }
 
         [Display (Name ="Contact Type")]

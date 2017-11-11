@@ -40,5 +40,8 @@ namespace MOBYNew.Models
 
         [Display(Name = "In Stock")]
         public int? QtyInStock { get; set; }
+
+        [Display(Name = "Date Added")]
+        public DateTime DateAdded { get; set; }
     }
 }

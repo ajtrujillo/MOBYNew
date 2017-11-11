@@ -13,7 +13,7 @@ namespace MOBYNew.App_Start
             {
                 //Domain to Dto
 
-                cfg.CreateMap<Contact, ContactFormBaseViewModel>()
+                cfg.CreateMap<Contact, ContactDto>()
                 .ForAllMembers(opt => opt.Condition(r => r != null));
                 cfg.CreateMap<Contact, ContactDto>();
                 cfg.CreateMap<ContactType, ContactTypeDto>();

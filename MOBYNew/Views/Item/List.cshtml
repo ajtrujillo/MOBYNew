@@ -99,7 +99,7 @@
                         {
                             data: "itemName",
                             render: function (data, type, item) {
-                                return "<a href='/items/edit/" + item.id + "'>" + data + "</a>";
+                                return "<a href='/item/edit/" + item.id + "'>" + data + "</a>";
                             }
                         },
                         {
@@ -132,8 +132,7 @@
                             url: "/api/items/" + button.attr("data-item-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
-                            }
+                                table.row(button.parents("tr")).remove().draw();                            }
                         });
                     }
                 })

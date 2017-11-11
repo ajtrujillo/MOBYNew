@@ -6,6 +6,7 @@ using System.Web.Http;
 using MOBYNew.Models;
 using MOBYNew.DTOs;
 using AutoMapper;
+using System.Collections.Generic;
 
 namespace MOBYNew.Controllers.Api
 {
@@ -19,74 +20,76 @@ namespace MOBYNew.Controllers.Api
         }
 
         // GET api/items
-        public IHttpActionResult GetItems()
+        public IEnumerable<ItemDto> GetItems()
         {
-            //return _context.Items.ToList().Select(Mapper.Map<Item, ItemDto>);
-            var ItemDtos = _context.Items
+            return _context.Items
                 .Include(c => c.ItemCategory)
                 .Include(c => c.ItemGenre)
                 .ToList()
                 .Select(Mapper.Map<Item, ItemDto>);
-
-            return Ok(ItemDtos);
         }
 
         // GET api/Items/5
         public IHttpActionResult GetItem(int id)
         {
-            var Item = _context.Items.SingleOrDefault(c => c.Id == id);
+            var item = _context.Items.SingleOrDefault(c => c.Id == id);
 
-            if (Item == null)
+            if (item == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<Item, ItemDto>(Item));
+            return Ok(Mapper.Map<Item, ItemDto>(item));
         }
 
         // POST api/Items
         [HttpPost]
-        public IHttpActionResult CreateItem(ItemDto ItemDto)
+        [Authorize(Roles = RoleName.CRUDOps)]
+        public IHttpActionResult CreateItem(ItemDto itemDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var Item = Mapper.Map<ItemDto, Item>(ItemDto);
+            var item = Mapper.Map<ItemDto, Item>(itemDto);
 
-            _context.Items.Add(Item);
+            _context.Items.Add(item);
             _context.SaveChanges();
 
-            ItemDto.Id = Item.Id;
-
-            return Created(new Uri(Request.RequestUri + "/" + Item.Id), ItemDto);
+            itemDto.Id = item.Id;
+            return Created(new Uri(Request.RequestUri + "/" + item.Id), itemDto);
         }
 
         // PUT api/Items/5
         [HttpPut]
-        public void UpdateItem(int id, ItemDto ItemDto)
+        [Authorize(Roles = RoleName.CRUDOps)]
+        public IHttpActionResult UpdateItem(int id, ItemDto itemDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
-            var ItemInDb = _context.Items.SingleOrDefault(c => c.Id == id);
+            var itemInDb = _context.Items.SingleOrDefault(c => c.Id == id);
 
-            if (ItemInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+            if (itemInDb == null)
+                return NotFound();
 
-            Mapper.Map<ItemDto, Item>(ItemDto, ItemInDb);
+            Mapper.Map<ItemDto, Item>(itemDto, itemInDb);
 
             _context.SaveChanges();
+            return Ok();
         }
 
         // DELETE api/Items/5
         [HttpDelete]
-        public void DeleteItem(int id)
+        [Authorize(Roles = RoleName.CRUDOps)]
+        public IHttpActionResult DeleteItem(int id)
         {
-            var ItemInDb = _context.Items.SingleOrDefault(c => c.Id == id);
+            var itemInDb = _context.Items.SingleOrDefault(c => c.Id == id);
 
-            if (ItemInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+            if (itemInDb == null)
+                return NotFound();
 
-            _context.Items.Remove(ItemInDb);
+            _context.Items.Remove(itemInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
