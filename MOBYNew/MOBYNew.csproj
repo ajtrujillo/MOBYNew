@@ -683,6 +683,14 @@
     <Compile Include="Migrations\201711111845587_AddedtoItemModel.Designer.cs">
       <DependentUpon>201711111845587_AddedtoItemModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711122309506_AddedPhoneNumbertoIdentityUser.cs" />
+    <Compile Include="Migrations\201711122309506_AddedPhoneNumbertoIdentityUser.Designer.cs">
+      <DependentUpon>201711122309506_AddedPhoneNumbertoIdentityUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711122324359_TweakedUserPhoneProperty.cs" />
+    <Compile Include="Migrations\201711122324359_TweakedUserPhoneProperty.Designer.cs">
+      <DependentUpon>201711122324359_TweakedUserPhoneProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -1152,6 +1160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711111845587_AddedtoItemModel.resx">
       <DependentUpon>201711111845587_AddedtoItemModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711122309506_AddedPhoneNumbertoIdentityUser.resx">
+      <DependentUpon>201711122309506_AddedPhoneNumbertoIdentityUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711122324359_TweakedUserPhoneProperty.resx">
+      <DependentUpon>201711122324359_TweakedUserPhoneProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
