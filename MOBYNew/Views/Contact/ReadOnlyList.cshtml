@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MOBYNew.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacts</h2>
+
+<table id="contacts" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactTypeName)
+            </th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#contacts").DataTable({
+                ajax: {
+                    url: "/api/contacts",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        //Parameter *MUST* be camel case!! Note!!
+                        data: "fullName",
+                        render: function (data, type, contact) {
+                            return "<a href='/contact/details/" + contact.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "contactTypeName.contactTypeName"
+                    }
+                ]
+            });
+        });
+    </script>
+}

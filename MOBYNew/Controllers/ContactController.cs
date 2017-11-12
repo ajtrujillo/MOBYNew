@@ -23,13 +23,18 @@ namespace MOBYNew.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CRUDOps))
+                return View("Index");
+            else
+                return View("ReadOnlyList");
         }
 
         // GET: Contact/Details/5
         public ActionResult Details(int? id)
         {
-            var contact = _context.Contacts.Include(c => c.contactTypes).SingleOrDefault(c => c.Id == id);
+            var contact = _context.Contacts
+                .Include(c => c.ContactTypeName)
+                .SingleOrDefault(c => c.Id == id);
 
             if (contact == null)
                 return HttpNotFound();
@@ -38,6 +43,7 @@ namespace MOBYNew.Controllers
         }
 
         // GET: Contact/Create
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Create()
         {
             var contactTypes = _context.ContactTypes.ToList();
@@ -53,6 +59,7 @@ namespace MOBYNew.Controllers
         //POST: Contact/Save
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Save(Contact contact)
         {
             if (!ModelState.IsValid)
@@ -102,6 +109,7 @@ namespace MOBYNew.Controllers
         //    return View(contact);
         //}
         // GET: Contact/Edit/5
+        [Authorize(Roles = RoleName.CRUDOps)]
         public ActionResult Edit(int? id)
         {
             var contact = _context.Contacts.SingleOrDefault(c => c.Id == id);

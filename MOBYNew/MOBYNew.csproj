@@ -972,6 +972,7 @@
     <Content Include="Views\Item\ReadOnlyList.cshtml" />
     <Content Include="Views\Item\ItemForm.cshtml" />
     <Content Include="Views\Contact\ContactForm.cshtml" />
+    <Content Include="Views\Contact\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
