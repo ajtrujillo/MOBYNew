@@ -54,9 +54,9 @@ namespace MOBYNew
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "531566350534539",
+               appSecret: "e402db5f027ad99359c20ece593a39c3");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

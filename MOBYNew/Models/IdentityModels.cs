@@ -12,7 +12,7 @@ namespace MOBYNew.Models
     {
         [Required(ErrorMessage = "Please provide a phone number")]
         [Display(Name = "Phone Number")]
-        [DataType(DataType.PhoneNumber)]
+        [Phone]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         public string PhoneNumber { get; set; }
 
@@ -28,7 +28,7 @@ namespace MOBYNew.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<ItemCategory>  Categories { get; set; }
+        public DbSet<ItemCategory> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<ItemGenre> Genres { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
