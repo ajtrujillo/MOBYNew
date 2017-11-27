@@ -19,10 +19,10 @@ namespace MOBYNew.Models
         public Item TRNItem { get; private set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "ReceiptModel.EntryDate is required")]
-        public DateTime EntryDate { get; set; }
+        public DateTime TRNDate { get; set; }
 
         [Display(Name = "Associate")]
-        public Guid EntryOwner { get; set; }
+        public Guid TRNOwner { get; set; }
 
         public double? InvoiceTotal()
         {
@@ -31,8 +31,8 @@ namespace MOBYNew.Models
         public Transaction()
         {
             TRNItems = new List<Item>();
-            EntryOwner = Guid.Empty;
-            EntryDate = DateTime.Now;
+            TRNOwner = Guid.Empty;
+            TRNDate = DateTime.Now;
             TRNContact = new Contact();
             TRNItem = new Item();
         }

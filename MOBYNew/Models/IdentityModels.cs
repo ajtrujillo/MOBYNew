@@ -33,7 +33,7 @@ namespace MOBYNew.Models
         public DbSet<ItemGenre> Genres { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
         public DbSet<ContactStatus> ContactStatus { get; set; }
-        public DbSet<CartItem> ShoppingCartItems { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -45,6 +45,6 @@ namespace MOBYNew.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<MOBYNew.Models.Transaction> Transactions { get; set; }
+        //public System.Data.Entity.DbSet<MOBYNew.Models.Transaction> Transactions { get; set; }
     }
 }

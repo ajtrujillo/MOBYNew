@@ -453,6 +453,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\ItemsController.cs" />
     <Compile Include="Controllers\Api\ContactsController.cs" />
+    <Compile Include="Controllers\Api\TransactionsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -463,6 +464,7 @@
     <Compile Include="Dtos\ContactDto.cs" />
     <Compile Include="Dtos\ItemCategoryDto.cs" />
     <Compile Include="Dtos\ContactTypeDto.cs" />
+    <Compile Include="Dtos\TransactionDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -693,6 +695,10 @@
     <Compile Include="Migrations\201711122324359_TweakedUserPhoneProperty.cs" />
     <Compile Include="Migrations\201711122324359_TweakedUserPhoneProperty.Designer.cs">
       <DependentUpon>201711122324359_TweakedUserPhoneProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711272201553_AddedTRNModelDtoandController.cs" />
+    <Compile Include="Migrations\201711272201553_AddedTRNModelDtoandController.Designer.cs">
+      <DependentUpon>201711272201553_AddedTRNModelDtoandController.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1232,6 +1238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711122324359_TweakedUserPhoneProperty.resx">
       <DependentUpon>201711122324359_TweakedUserPhoneProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711272201553_AddedTRNModelDtoandController.resx">
+      <DependentUpon>201711272201553_AddedTRNModelDtoandController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
