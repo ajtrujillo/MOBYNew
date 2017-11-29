@@ -16,7 +16,7 @@ namespace MOBYNew.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Select A Contact")]
         public Contact TRNContact { get; set; }
         public List<Item> TRNItems { get; set; }
-        public Item TRNItem { get; private set; }
+        public Item TRNItem { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "ReceiptModel.EntryDate is required")]
         public DateTime TRNDate { get; set; }
