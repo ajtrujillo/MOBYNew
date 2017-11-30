@@ -9,7 +9,7 @@
 <form>
     <div class="form-group">
         <label>Contact</label>
-        <input type="text" value="" class="form-control"/>
+        <input id="contact" type="text" value="" class="form-control"/>
     </div>
     <div class="form-group">
         <label>Item</label>
@@ -17,3 +17,27 @@
     </div>
     <button class="btn btn-primary">Submit</button>
 </form>
+
+@section scripts
+    {<script>
+        $(document).ready(function () {
+            var contacts = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('fullname'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/contacts?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#contact').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'contact',
+                display: 'fullname',
+                source: contacts
+            });
+        });
+    </script>
+    }
