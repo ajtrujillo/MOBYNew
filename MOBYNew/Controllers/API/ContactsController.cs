@@ -19,15 +19,24 @@ namespace MOBYNew.Controllers.Api
         }
 
         // GET api/contacts
-        public IHttpActionResult GetContacts()
+        public IHttpActionResult GetContacts(string query = null)
         {
-            var contactDtos = _context.Contacts
-                .Include(c => c.ContactTypeName)
+            var contactsQuery = _context.Contacts
+                .Include(c => c.ContactTypeName);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                contactsQuery = contactsQuery.Where(c => c.LastName.Contains(query));
+
+            var contactDtos = contactsQuery
                 .ToList()
                 .Select(Mapper.Map<Contact, ContactDto>);
+            //var contactDtos = _context.Contacts
+            //    .Include(c => c.ContactTypeName)
+            //    .ToList()
+            //    .Select(Mapper.Map<Contact, ContactDto>);
 
+            //return Ok(contactDtos);
             return Ok(contactDtos);
-
         }
 
         // GET api/contacts/5

@@ -20,13 +20,23 @@ namespace MOBYNew.Controllers.Api
         }
 
         // GET api/items
-        public IEnumerable<ItemDto> GetItems()
+        public IEnumerable<ItemDto> GetItems(string query= null)
         {
-            return _context.Items
-                .Include(c => c.ItemCategory)
-                .Include(c => c.ItemGenre)
+            var itemsQuery = _context.Items
+                .Include(m => m.ItemCategory)
+                .Where(m => m.QtyInStock > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                itemsQuery = itemsQuery.Where(m => m.ItemName.Contains(query));
+
+            return itemsQuery
                 .ToList()
                 .Select(Mapper.Map<Item, ItemDto>);
+            //return _context.Items
+            //    .Include(c => c.ItemCategory)
+            //    .Include(c => c.ItemGenre)
+            //    .ToList()
+            //    .Select(Mapper.Map<Item, ItemDto>);
         }
 
         // GET api/Items/5

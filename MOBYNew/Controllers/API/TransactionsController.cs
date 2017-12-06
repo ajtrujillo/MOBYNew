@@ -20,9 +20,7 @@ namespace MOBYNew.Controllers.Api
             foreach (var item in items)
             {
                 if (item.QtyInStock == 0)
-                    //return BadRequest("This item is out of stock");
-
-                    return Content(System.Net.HttpStatusCode.BadRequest, "This item's stock level is at or below zero");
+                    return BadRequest("This item is out of stock");
 
                 item.QtyInStock--;
 
