@@ -38,7 +38,7 @@
             var vm = { itemIds: [] };
 
             var contacts = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('lastName'),
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('fullName'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 remote: {
                     url: '/api/contacts?query=%QUERY',
@@ -51,7 +51,7 @@
                 highlight: true
             }, {
                 name: 'contact',
-                display: 'lastName',
+                display: 'fullName',
                 source: contacts
             }).on("typeahead:select", function (e, contact) {
                 vm.contactId = contact.id;

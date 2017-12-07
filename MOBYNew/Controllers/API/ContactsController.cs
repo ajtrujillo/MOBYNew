@@ -25,7 +25,7 @@ namespace MOBYNew.Controllers.Api
                 .Include(c => c.ContactTypeName);
 
             if (!String.IsNullOrWhiteSpace(query))
-                contactsQuery = contactsQuery.Where(c => c.LastName.Contains(query));
+                contactsQuery = contactsQuery.Where(c => c.LastName.Contains(query) || c.FirstName.Contains(query));
 
             var contactDtos = contactsQuery
                 .ToList()
