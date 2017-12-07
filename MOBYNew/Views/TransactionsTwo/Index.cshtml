@@ -70,8 +70,8 @@
                 minLength: 3,
                 highlight: true
             }, {
-                name: 'items',
-                display: 'name',
+                name: 'item',
+                display: 'itemName',
                 source: items
             }).on("typeahead.select", function (e, item) {
                 $("#items").append("<li class='list-group-item> + item.itemName + </li>");
