@@ -10,14 +10,14 @@
     <div class="form-group">
         <label>Contact</label>
         <div class="tt-container">
-            <input id="contact" type="text" value="" class="form-control" />
+            <input id="contact" name="contact" data-rule-validContact="true" required type="text" value="" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
         <label>Item</label>
         <div class="tt-container">
-            <input id="item" type="text" value="" class="form-control" />
+            <input id="item" name="item" data-rule-atLeastOneItem="true" type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -32,7 +32,10 @@
 
 @section scripts
     {
+
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
+
         $(document).ready(function () {
 
             var vm = { itemIds: [] };
@@ -80,20 +83,39 @@
 
                 vm.itemIds.push(item.id);
             });
-            $("#newTransaction").submit(function (e) {
-                e.preventDefault();
 
-                $.ajax({
-                    url: "/api/newTransaction",
-                    method: "post",
-                    data: vm
-                })
-                .done(function () {
-                    console.log("done");
-                })
-                .fail(function () {
+            $.validator.addMethod("validContact", function () {
+                return vm.contactId && vm.contactId !== 0;
+            }, "Please select a valid contact.");
 
-                });
+            $.validator.addMethod("atLeastOneItem", function () {
+                return vm.itemIds.length > 0;
+            }, "Please select an item.");
+
+            var validator = $("#newTransaction").validate({
+                submitHandler: function () {
+                    $.ajax({
+                        url: "/api/newTransaction",
+                        method: "post",
+                        data: vm
+                    })
+                    .done(function () {
+                        toastr.success("Items added to transaction.")
+
+                        $("#contact").typeahead("val", "");
+                        $("#item").typeahead("val", "");
+                        $("#items").empty();
+
+                        vm = { itemIds: [] };
+
+                        validator.resetForm();
+                    })
+                    .fail(function () {
+                        toastr.error("Something unexpected happened.")
+                    });
+
+                    return false;
+                }
             });
         });
     </script>

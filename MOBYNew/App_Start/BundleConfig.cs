@@ -14,7 +14,8 @@ namespace MOBYNew
                         "~/Scripts/respond.js",
                         "~/Scripts/datatables/jquery.datatables.js",
                         "~/Scripts/datatables/datatables.bootstrap.js",
-                        "~/Scripts/typeahead.bundle.js"
+                        "~/Scripts/typeahead.bundle.js",
+                        "~/Scripts/toastr.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -30,7 +31,8 @@ namespace MOBYNew
                       "~/Content/bootstrap-readable.css",
                       "~/Content/typeahead.css",
                       "~/Content/site.css",
-                      "~/Content/datatables/css/datatables.bootstrap.css"
+                      "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/toastr.css"
                       ));
         }
     }

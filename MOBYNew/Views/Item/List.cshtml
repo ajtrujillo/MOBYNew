@@ -19,9 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ItemCategory.CategoryName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ItemGenre.GenreName)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
@@ -105,9 +105,9 @@
                         {
                             data: "itemCategory.categoryName"
                         },
-                        {
-                            data: "itemGenre.genreName"
-                        },
+                        //{
+                        //    data: "itemGenre.genreName"
+                        //},
                         {
                             data: "price"
                         },
@@ -117,7 +117,7 @@
                     {
                         data: "id",
                         render: function (data) {
-                            return "<button class='btn-link js-delete' data-contact-id=" + data + ">Delete</button>";
+                            return "<button class='btn-link js-delete' data-item-id=" + data + ">Delete</button>";
                         }
                     }]
                 })
