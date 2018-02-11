@@ -18,7 +18,7 @@ namespace MOBYNew.Models
         public List<Item> TRNItems { get; set; }
         public Item TRNItem { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "ReceiptModel.EntryDate is required")]
+        //[Required(AllowEmptyStrings = false, ErrorMessage = "EntryDate is required")]
         public DateTime TRNDate { get; set; }
 
         [Display(Name = "Associate")]

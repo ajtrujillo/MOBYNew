@@ -458,8 +458,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TestTransactionsController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
-    <Compile Include="Controllers\TransactionsTwoController.cs" />
     <Compile Include="Dtos\ItemGenreDto.cs" />
     <Compile Include="Dtos\ItemDto.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
@@ -700,6 +700,10 @@
     <Compile Include="Migrations\201711272201553_AddedTRNModelDtoandController.cs" />
     <Compile Include="Migrations\201711272201553_AddedTRNModelDtoandController.Designer.cs">
       <DependentUpon>201711272201553_AddedTRNModelDtoandController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802112316040_addedTRNclass.cs" />
+    <Compile Include="Migrations\201802112316040_addedTRNclass.Designer.cs">
+      <DependentUpon>201802112316040_addedTRNclass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1060,16 +1064,16 @@
     <Content Include="Views\Contact\Details.cshtml" />
     <Content Include="Views\Contact\Edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\TestCreate.cshtml" />
     <Content Include="Views\Transactions\Delete.cshtml" />
     <Content Include="Views\Transactions\Details.cshtml" />
     <Content Include="Views\Transactions\Edit.cshtml" />
-    <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\Transactions\TestIndex.cshtml" />
     <Content Include="Views\Item\ReadOnlyList.cshtml" />
     <Content Include="Views\Item\ItemForm.cshtml" />
     <Content Include="Views\Contact\ContactForm.cshtml" />
     <Content Include="Views\Contact\ReadOnlyList.cshtml" />
-    <Content Include="Views\TransactionsTwo\Index.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1256,6 +1260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711272201553_AddedTRNModelDtoandController.resx">
       <DependentUpon>201711272201553_AddedTRNModelDtoandController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802112316040_addedTRNclass.resx">
+      <DependentUpon>201802112316040_addedTRNclass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
