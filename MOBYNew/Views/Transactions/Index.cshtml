@@ -23,7 +23,7 @@
 
     <div class="row">
         <div class="col-md-6 col-sm-6">
-            <ul id="itemlist" class="list-group"></ul>
+            <ul id="TRNitemlist" class="list-group"></ul>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
                 display: 'itemName',
                 source: items
             }).on("typeahead:select", function (e, item) {
-                $("#itemlist").append("<li class='list-group-item'>" + item.itemName + "</li>");
+                $("#TRNitemlist").append("<li class='list-group-item'>" + item.itemName + "    " + item.price +"</li>");
 
                 $("#item").typeahead("val", "");
 
